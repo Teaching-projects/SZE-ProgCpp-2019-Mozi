@@ -7,8 +7,15 @@ class Ertekeles
 public:
 	Ertekeles(std::string leiras, int csillagdb)
 	{
-		this->leiras = leiras;
-		this->csillagdb = csillagdb;
+		if (csillagdb > 10 || csillagdb < 0)
+		{
+			this->csillagdb = 5;
+		}
+		else
+		{
+			this->leiras = leiras;
+			this->csillagdb = csillagdb;
+		}
 	};
 
 private:
@@ -21,7 +28,14 @@ public:
 	{
 		return csillagdb;
 	}
-	void setCsillagdb(int csillagdb) { this->csillagdb = csillagdb; }
+	void setCsillagdb(int csillagdb) 
+	{ 
+		if (csillagdb <= 10 && csillagdb >= 1)
+		{
+
+			this->csillagdb = csillagdb;
+		}
+	}
 
 	std::string getLeiras()
 	{
@@ -33,6 +47,6 @@ public:
 		this->leiras = leiras;
 	}
 
-	void csillagkiir(int csillagdb);
+	void csillagkiir();
 
 };
