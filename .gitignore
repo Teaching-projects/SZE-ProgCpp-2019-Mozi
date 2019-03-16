@@ -1,6 +1,6 @@
 Debug
 .vs
-*.vcxproj
-*.vcxproj.filters
+!*.vcxproj
+!*.vcxproj.filters
 !*.cpp
 !*.hpp
