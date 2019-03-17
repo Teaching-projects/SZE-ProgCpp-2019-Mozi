@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#ifndef TEREM_HEADER
+#define TEREM_HEADER
+
 
 class Terem
 {
@@ -17,6 +20,8 @@ public:
 		this->kapacitas = kapacitas;
 		this->legkondizalte = legkondizalte;
 	}
+
+	void teremKiir();
 
 	bool getLegkondizalte()
 	{
@@ -60,3 +65,5 @@ public:
 	}
 
 };
+
+#endif

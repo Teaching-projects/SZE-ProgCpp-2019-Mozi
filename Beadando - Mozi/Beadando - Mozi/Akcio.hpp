@@ -4,7 +4,8 @@
 class Akcio
 {
 public:
-	static double getAkciosAr(int ar);
+	static double getDiakAr(int ar);
+	static double getNyugdijasAr(int ar);
 
 	
 

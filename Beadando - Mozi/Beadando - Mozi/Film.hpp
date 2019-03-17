@@ -1,6 +1,8 @@
 #include "Nyelv.cpp"
 #include "Tipus.cpp"
+//#include "Ertekeles.hpp"
 #include <string>
+#include <vector>
 
 class Film
 {
@@ -9,6 +11,8 @@ private:
 	std::string rendezo;
 	Nyelv nyelv; //=Magyar
 	Tipus tipus;
+	std::vector<Ertekeles> ertekelesek;
+
 
 public:
 	Film(std::string cim, std::string rendezo, Nyelv nyelv, Tipus tipus)
@@ -18,6 +22,11 @@ public:
 		this->nyelv = nyelv;
 		this->tipus = tipus;
 	}
+
+	void kiir();
+	void ertekelesHozzaad(Ertekeles ertekeles);
+	void filmKiir();
+	
 
 	std::string getCim()
 	{

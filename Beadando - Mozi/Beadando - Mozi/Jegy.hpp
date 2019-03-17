@@ -1,25 +1,31 @@
 #include <iostream>
 #include <string>
 #include "Napok.cpp"
+#include "Ervenyes.hpp"
 
-class Jegy
+class Jegy : public Ervenyes
 {
 private:
 	std::string kod;
-	Napok nap;
+	//Napok nap;
 	int sor;
 	int oszlop;
+	int ev;
+	int honap;
+	int nap;
 	
 	int ar;
 
 public:
-	Jegy(std::string kod, Napok nap,int sor, int oszlop, int ar)
+	Jegy(std::string kod, int sor, int oszlop, int ar, int ev, int honap, int nap)
 	{
 		this->kod = kod;
-		this->nap = nap;
 		this->sor = sor;
 		this->oszlop = oszlop;
 		this->ar = ar;
+		this->ev = ev;
+		this->honap = honap;
+		this->nap = nap;
 	}
 
 public:
@@ -28,7 +34,16 @@ public:
 		return this->kod;
 	}
 
-	std::string getNap()
+	 //std::string isErvenyes(int ev, int honap, int nap);
+
+	virtual std::string isErvenyes(int ev, int honap, int nap);
+
+	/*{
+		return this->ev == ev && this->honap == honap && this->nap == nap;
+	}*/
+
+
+	/*std::string getNap()
 	{
 		switch (this->nap)
 		{
@@ -40,12 +55,12 @@ public:
 		case 5: return "Szombat";
 		case 6:  return "Vasarnap";
 		}
-	}
+	}*/
 
-	void setNap(Napok nap)
+	/*void setNap(Napok nap)
 	{
 		this->nap = nap;
-	}
+	}*/
 
 	int getSor()
 	{
@@ -77,7 +92,35 @@ public:
 		this->ar = ar;
 	}
 
+	 int getEv()
+	{
+		return this->ev;
+	}
+	
+	void setEv(int ev)
+	{
+		this->ev = ev;
+	}
 
+	int getHonap()
+	{
+		return this->honap;
+	}
+
+	void setHonap(int honap)
+	{
+		this->honap = honap;
+	}
+
+	int getNap()
+	{
+		return this->nap;
+	}
+
+	void setNap(int nap)
+	{
+		this->nap = nap;
+	}
 	
 
 };

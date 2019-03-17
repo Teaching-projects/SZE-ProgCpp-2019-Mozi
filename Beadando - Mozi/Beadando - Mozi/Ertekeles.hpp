@@ -4,11 +4,17 @@
 
 class Ertekeles
 {
+
+private:
+	std::string leiras;
+	int csillagdb;
+
 public:
 	Ertekeles(std::string leiras, int csillagdb)
 	{
 		if (csillagdb > 10 || csillagdb < 0)
 		{
+			std::cout << "Hibas ertek lett megadva, alapertemezett lett beallitva!" << std::endl;
 			this->csillagdb = 5;
 		}
 		else
@@ -18,9 +24,6 @@ public:
 		}
 	};
 
-private:
-	std::string leiras;
-	int csillagdb;
 	
 
 public:
@@ -47,6 +50,8 @@ public:
 		this->leiras = leiras;
 	}
 
-	void csillagkiir();
+	void csillagKiir();
+	
+	void ertekelesKiir();
 
 };

@@ -5,7 +5,13 @@
 
 
 	
- double Akcio::getAkciosAr(int ar)
+ double Akcio::getDiakAr(int ar)
 {
-	return ar*0.5;
+	return ar*0.75;
 }
+
+ double Akcio::getNyugdijasAr(int ar)
+ {
+	 return ar*0.5;
+ }
+

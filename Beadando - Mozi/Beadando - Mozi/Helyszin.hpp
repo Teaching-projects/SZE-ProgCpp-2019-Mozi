@@ -1,5 +1,9 @@
 #include <iostream>
 #include <string>
+#include "Terem.hpp"
+#include <list>
+#include <vector>
+
 
 
 class Helyszin
@@ -9,17 +13,27 @@ private:
 	std::string cim;
 	std::string nyitas;
 	std::string zaras;
+	std::vector<Terem> termek;
+	
+	
+	
 
 public:
-
+	
 	Helyszin(std::string nev, std::string cim, std::string nyitas, std::string zaras)
 	{
+		
 		this->nev = nev;
 		this->cim = cim;
 		this->nyitas = nyitas;
 		this->zaras = zaras;
 	}
+	
+	void kiir();
+	void hozzaad(Terem terem);
+	void torol(Terem terem);
 
+	
 	std::string getNev()
 	{
 		return this->nev;
