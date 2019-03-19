@@ -28,6 +28,7 @@ int main() {
 */
 	//ToDo: cinema felulet, fh + jelszo inputell, adatbázis
 
+	//sql vagy nosql-> local szerver -> ezt telepíteni, valamint hogy van c++ api --> include header / link
 
 	Terem t1 = Terem(1, "terem1", 50, true);
 	Terem t2 = Terem(2, "terem2", 20, false);
