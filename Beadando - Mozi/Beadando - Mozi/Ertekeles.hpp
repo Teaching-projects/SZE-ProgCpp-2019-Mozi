@@ -1,3 +1,5 @@
+#ifndef ERTEKELES_HPP
+#define ERTEKELES_HPP
 #include <iostream>
 #include <string>
 
@@ -55,3 +57,5 @@ public:
 	void ertekelesKiir();
 
 };
+
+#endif

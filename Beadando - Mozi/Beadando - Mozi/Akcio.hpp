@@ -4,9 +4,11 @@
 class Akcio
 {
 public:
-	static double getDiakAr(int ar);
-	static double getNyugdijasAr(int ar);
-
+	static const int alapar = 1500;
+	static int getDiakAr();
+	static int getNyugdijasAr();
+	static int getNormalAr();
+	
 	
 
 };

@@ -1,3 +1,5 @@
+#ifndef FELHASZNALO_HPP
+#define FELHASZNALO_HPP
 #include <iostream>
 #include <string>
 
@@ -54,3 +56,5 @@ public:
 
 
 };
+
+#endif

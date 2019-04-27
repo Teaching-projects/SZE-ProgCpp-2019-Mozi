@@ -11,8 +11,11 @@ private:
 	std::string nev;
 	int kapacitas;
 	bool legkondizalte;
+	char ulesek[10][10];
 
 public:
+
+
 	Terem(int azonosito, std::string nev, int kapacitas, bool legkondizalte)
 	{
 		this->azonosito = azonosito;
@@ -21,6 +24,8 @@ public:
 		this->legkondizalte = legkondizalte;
 	}
 
+	void ulesKiir();
+	void ulesFeltolt();
 	void teremKiir();
 
 	bool getLegkondizalte()

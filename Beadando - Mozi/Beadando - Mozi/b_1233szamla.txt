@@ -1,0 +1,5 @@
+Vevo neve: Neve
+Berlet intervalluma: 2019.2.1 - 2019.3.30
+Berlet kodja: 1233
+Berlet ara: 8000
+Terem: terem1

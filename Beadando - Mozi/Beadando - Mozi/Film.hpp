@@ -1,6 +1,8 @@
+#ifndef FILM_HPP
+#define FILM_HPP
 #include "Nyelv.cpp"
 #include "Tipus.cpp"
-//#include "Ertekeles.hpp"
+#include "Ertekeles.hpp"
 #include <string>
 #include <vector>
 
@@ -12,6 +14,8 @@ private:
 	Nyelv nyelv; //=Magyar
 	Tipus tipus;
 	std::vector<Ertekeles> ertekelesek;
+	
+
 
 
 public:
@@ -26,6 +30,7 @@ public:
 	void kiir();
 	void ertekelesHozzaad(Ertekeles ertekeles);
 	void filmKiir();
+	
 	
 
 	std::string getCim()
@@ -96,3 +101,5 @@ public:
 
 
 };
+
+#endif

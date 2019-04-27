@@ -6,6 +6,8 @@
 
 
 
+
+
 class Helyszin
 {
 private:

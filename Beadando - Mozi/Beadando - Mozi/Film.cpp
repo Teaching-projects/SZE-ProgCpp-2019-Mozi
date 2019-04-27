@@ -1,4 +1,4 @@
-#include "Ertekeles.hpp"
+//#include "Ertekeles.hpp"
 #include <string>
 #include <iostream>
 #include "Film.hpp"
@@ -32,4 +32,6 @@ void Film::kiir()
 
 
 }
+
+
 

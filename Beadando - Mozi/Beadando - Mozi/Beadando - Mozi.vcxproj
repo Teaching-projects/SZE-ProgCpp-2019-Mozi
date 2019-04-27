@@ -150,6 +150,7 @@
     <ClCompile Include="Film.cpp" />
     <ClCompile Include="Helyszin.cpp" />
     <ClCompile Include="Jegy.cpp" />
+    <ClCompile Include="Kijelzes.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mozi.cpp" />
     <ClCompile Include="Napok.cpp" />
@@ -157,9 +158,9 @@
     <ClCompile Include="Szamla.cpp" />
     <ClCompile Include="Szek.cpp" />
     <ClCompile Include="Szemelyzet.cpp" />
+    <ClCompile Include="Tarolo.cpp" />
     <ClCompile Include="Terem.cpp" />
     <ClCompile Include="Tipus.cpp" />
-    <ClCompile Include="Ules.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Akcio.hpp" />
@@ -170,9 +171,13 @@
     <ClInclude Include="Film.hpp" />
     <ClInclude Include="Helyszin.hpp" />
     <ClInclude Include="Jegy.hpp" />
+    <ClInclude Include="Kijelzes.hpp" />
+    <ClInclude Include="main.hpp" />
     <ClInclude Include="Mozi.hpp" />
+    <ClInclude Include="Szamla.hpp" />
     <ClInclude Include="Szek.hpp" />
     <ClInclude Include="Szemelyzet.hpp" />
+    <ClInclude Include="Tarolo.hpp" />
     <ClInclude Include="Terem.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

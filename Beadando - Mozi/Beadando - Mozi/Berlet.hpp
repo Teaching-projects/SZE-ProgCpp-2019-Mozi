@@ -1,10 +1,13 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <string>
 
 class Berlet
 {
 private:
+	std::string kod;
+	int ar;
 	int evTol;
 	int evIg;
 	int honapTol;
@@ -13,9 +16,10 @@ private:
 	int napIg;
 
 public:
-	Berlet(int evTol, int honapTol, int napTol, int evIg, int honapIg, int napIg)
+	Berlet(int ar,std::string kod,int evTol, int honapTol, int napTol, int evIg, int honapIg, int napIg)
 	{
-		
+		this->ar = ar;
+		this->kod = kod;
 		this->evTol = evTol;
 		this->evIg = evIg;
 		this->honapTol = honapTol;
@@ -26,7 +30,19 @@ public:
 
 	virtual std::string isErvenyes(int ev, int honap, int nap);
 
+	int getAr()
+	{
+		return this->ar;
+	}
 
+	std::string getKod()
+	{
+		return this->kod;
+	}
+	void setKod(std::string kod)
+	{
+		this->kod = kod;
+	}
 	
 	int getEvTol()
 	{

@@ -1,7 +1,12 @@
+#ifndef JEGY_HPP
+#define JEGY_HPP
 #include <iostream>
 #include <string>
 #include "Napok.cpp"
 #include "Ervenyes.hpp"
+//#include "Film.hpp"
+
+
 
 class Jegy : public Ervenyes
 {
@@ -13,6 +18,7 @@ private:
 	int ev;
 	int honap;
 	int nap;
+	//Film f;
 	
 	int ar;
 
@@ -124,3 +130,4 @@ public:
 	
 
 };
+#endif

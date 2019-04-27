@@ -24,9 +24,6 @@
     <ClCompile Include="Jegy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ules.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Szemelyzet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -69,6 +66,12 @@
     <ClCompile Include="Szek.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Kijelzes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tarolo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Felhasznalo.hpp">
@@ -105,6 +108,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Mozi.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Szamla.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Kijelzes.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tarolo.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
