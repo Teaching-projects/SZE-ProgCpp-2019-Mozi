@@ -18,6 +18,7 @@ public:
 	void teremKiir();
 	void teremHozzaad(Terem terem);
 	void teremTorol(Terem terem);
+	void jelenlegiFilmek();
 	std::vector<Film> filmek;
 	std::vector<Terem> termek;
 

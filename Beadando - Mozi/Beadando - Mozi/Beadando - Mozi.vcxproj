@@ -149,6 +149,7 @@
     <ClCompile Include="Felhasznalo.cpp" />
     <ClCompile Include="Film.cpp" />
     <ClCompile Include="Helyszin.cpp" />
+    <ClCompile Include="Inputell.cpp" />
     <ClCompile Include="Jegy.cpp" />
     <ClCompile Include="Kijelzes.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Felhasznalo.hpp" />
     <ClInclude Include="Film.hpp" />
     <ClInclude Include="Helyszin.hpp" />
+    <ClInclude Include="Inputell.h" />
     <ClInclude Include="Jegy.hpp" />
     <ClInclude Include="Kijelzes.hpp" />
     <ClInclude Include="main.hpp" />

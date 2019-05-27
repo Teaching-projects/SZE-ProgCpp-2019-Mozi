@@ -4,7 +4,8 @@
 #include <string>
 #include "Napok.cpp"
 #include "Ervenyes.hpp"
-//#include "Film.hpp"
+#include "Film.hpp"
+#include "Helyszin.hpp"
 
 
 
@@ -18,12 +19,13 @@ private:
 	int ev;
 	int honap;
 	int nap;
-	//Film f;
+	Film f;
+	//Helyszin h;   kesobb kell majd
 	
 	int ar;
 
 public:
-	Jegy(std::string kod, int sor, int oszlop, int ar, int ev, int honap, int nap)
+	Jegy(std::string kod, int sor, int oszlop, int ar, int ev, int honap, int nap, Film f)
 	{
 		this->kod = kod;
 		this->sor = sor;
@@ -32,9 +34,15 @@ public:
 		this->ev = ev;
 		this->honap = honap;
 		this->nap = nap;
+		this->f = f;
+		//this->h = h;
 	}
 
+
 public:
+
+	void jegyKiir();
+
 	std::string getKod()
 	{
 		return this->kod;

@@ -20,7 +20,7 @@ void Kijelzes::kezdooldal()
 void Kijelzes::jelenlegiFilmek(Tarolo t)
 {
 	std::cout << "Jelenlegi filmek" << std::endl << "****************" << std::endl;
-	t.filmKiir();
+	t.jelenlegiFilmek();
 }
 
 void Kijelzes::jegyVasarlas(Tarolo t)

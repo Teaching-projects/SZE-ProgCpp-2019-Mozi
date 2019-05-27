@@ -14,6 +14,21 @@ void Tarolo::filmKiir()
 	}
 
 }
+
+void Tarolo::jelenlegiFilmek()
+{
+	i = 0;
+	for (Film f : filmek)
+	{
+		
+		std::cout << f.getCim();
+		std::cout << std::endl;
+		i++;
+	}
+
+}
+
+
 void Tarolo::filmHozzaad(Film film)
 {
 	filmek.push_back(film);

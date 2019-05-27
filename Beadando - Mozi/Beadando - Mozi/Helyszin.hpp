@@ -1,3 +1,5 @@
+#ifndef HELYSZIN_HPP
+#define HELYSZIN_HPP
 #include <iostream>
 #include <string>
 #include "Terem.hpp"
@@ -29,6 +31,10 @@ public:
 		this->cim = cim;
 		this->nyitas = nyitas;
 		this->zaras = zaras;
+	}
+	Helyszin()
+	{
+
 	}
 	
 	void kiir();
@@ -78,3 +84,4 @@ public:
 
 	
 };
+#endif

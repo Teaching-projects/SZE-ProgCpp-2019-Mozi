@@ -34,24 +34,42 @@ void Terem::ulesFeltolt()
 
 void Terem::ulesKiir()
 {
-	ulesFeltolt();
 
 	int i;
 	int j;
 
 	for (i = 0; i < 10; i++)
 	{
-		std::cout << i + 1 <<". ";
+		std::cout << i + 1 << ". ";
 	}
 
-	for (i=0; i < 10; i++)
+	for (i = 0; i < 10; i++)
 	{
 		std::cout << std::endl;
-		for (j=0; j < 10; j++)
+		for (j = 0; j < 10; j++)
 		{
 			std::cout << ulesek[i][j] << "  ";
-			if (j == 9) std::cout << i+1 << ". sor";
+			if (j == 9) std::cout << i + 1 << ". sor";
 		}
 	}
 }
+
+
+
+void Terem::ulesFoglal(int sor, int oszlop)
+{
+	ulesek[sor][oszlop] = 'X';
+}
+
+bool Terem::ugyanodaFoglal(int sor, int oszlop)
+{
+	if (ulesek[sor][oszlop] == 'X')
+	{
+		std::cout <<std::endl<< "Ez a hely mar foglalt, valassz masikat!" << std::endl << std::endl;
+		return false;
+	}
+	return true;
+}
+
+
 

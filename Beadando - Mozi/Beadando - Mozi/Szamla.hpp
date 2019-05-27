@@ -1,3 +1,5 @@
+#ifndef SZAMLA_HPP
+#define SZAMLA_HPP
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -5,17 +7,18 @@
 #include "Jegy.hpp"
 #include "Berlet.hpp"
 #include "Terem.hpp"
-
+static std::ofstream fajl;
 class Szamla
 {
-	private:
-		std::ofstream fajl;
+	
+		
 		
 	public:
 		Szamla();	
 
-
-		void szamlaJegy(Felhasznalo f, Jegy j, Terem t);
-		void szamlaBerlet(Felhasznalo f, Berlet b, Terem t);
+		
+		static void szamlaJegy(Felhasznalo f, std::vector<Jegy> jegyek, Terem t);
+		static void szamlaBerlet(Felhasznalo f, Berlet b, Terem t);
 
 };
+#endif

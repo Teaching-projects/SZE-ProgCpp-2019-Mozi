@@ -27,13 +27,18 @@ public:
 		this->tipus = tipus;
 	}
 
+	Film()
+	{
+
+	}
+
 	void kiir();
 	void ertekelesHozzaad(Ertekeles ertekeles);
 	void filmKiir();
 	
 	
 
-	std::string getCim()
+ std::string getCim()
 	{
 		return this->cim;
 	}

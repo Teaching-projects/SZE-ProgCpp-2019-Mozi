@@ -22,11 +22,14 @@ public:
 		this->nev = nev;
 		this->kapacitas = kapacitas;
 		this->legkondizalte = legkondizalte;
+		ulesFeltolt();
 	}
 
 	void ulesKiir();
 	void ulesFeltolt();
 	void teremKiir();
+	void ulesFoglal(int sor, int oszlop);
+	bool ugyanodaFoglal(int sor, int oszlop);
 
 	bool getLegkondizalte()
 	{

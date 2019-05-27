@@ -72,6 +72,9 @@
     <ClCompile Include="Tarolo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Inputell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Felhasznalo.hpp">
@@ -120,6 +123,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tarolo.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Inputell.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
