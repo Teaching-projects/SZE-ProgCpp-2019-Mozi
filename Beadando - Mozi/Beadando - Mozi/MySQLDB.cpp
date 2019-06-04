@@ -1,4 +1,5 @@
 #include "MySQLDB.hpp"
+#include "main.hpp"
 
 int qstate;
 string current;
@@ -22,7 +23,7 @@ void MySQLDB::menu() {
 			ok = 1;
 		}
 		else if (choice == '2') {
-			start();
+			Main::Main::start();
 			ok = 1;
 		}
 		else if (choice == '3') {
@@ -121,10 +122,6 @@ void MySQLDB::login() {
 		puts("Sikertelen kapcsolódás.\n");
 }
 
-void MySQLDB::start() {
-	puts("start");
-}
-
 void MySQLDB::keszitok() {
 	system("CLS");
 	puts("Készítették:\n");
@@ -152,7 +149,7 @@ void MySQLDB::adminmenu(MYSQL* conn) {
 		std::cout << "\nA választott menüpont: ";
 		std::cin >> choice;
 		if (choice == '1') {
-			start();
+			Main::start();
 			ok = 1;
 		}
 		else if (choice == '2') {
@@ -188,7 +185,7 @@ void MySQLDB::usermenu() {
 		std::cout << "\nA választott menüpont: ";
 		std::cin >> choice;
 		if (choice == '1') {
-			start();
+			Main::start();
 			ok = 1;
 		}
 		else if (choice == '2') {
