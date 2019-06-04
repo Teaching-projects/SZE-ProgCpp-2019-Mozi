@@ -1,3 +1,5 @@
+#ifndef BERLET_HPP
+#define BERLET_HPP
 #pragma once
 #include <string>
 #include <iostream>
@@ -106,3 +108,4 @@ public:
 
 };
 
+#endif

@@ -1,3 +1,5 @@
+#ifndef SZEMELYZET_HPP
+#define SZEMELYZET_HPP
 #include <iostream>
 #include <string>
 #include "Felhasznalo.hpp"
@@ -24,3 +26,5 @@ public:
 	}
 	
 };
+
+#endif

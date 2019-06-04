@@ -1,6 +1,7 @@
+#ifndef KIJELZES_HPP
+#define KIJELZES_HPP
 #pragma once
-//#ifndef TAROLO_HPP
-//#define TAROLO_HPP
+
 #include "Tarolo.hpp"
 class Kijelzes
 {
@@ -13,4 +14,4 @@ public:
 
 };
 
-//#endif
+#endif

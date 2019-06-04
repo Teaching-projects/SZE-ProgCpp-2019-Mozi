@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#ifndef TEREM_HEADER
-#define TEREM_HEADER
+#ifndef TEREM_HPP
+#define TEREM_HPP
 
 
 class Terem

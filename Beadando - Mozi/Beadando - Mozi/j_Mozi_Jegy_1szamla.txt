@@ -1,24 +1,8 @@
 Vevo neve: Neve
-Vasarlas napja: 2019.5.3
+Vasarlas napja: 2019.6.4
 
 Jegy kodja: Mozi_Jegy_1
 Ules: 1/1
 Jegy ara: 1500
-Terem: terem2
-
-Vevo neve: Neve
-Vasarlas napja: 2019.5.3
-
-Jegy kodja: Mozi_Jegy_2
-Ules: 1/2
-Jegy ara: 1500
-Terem: terem2
-
-Vevo neve: Neve
-Vasarlas napja: 2019.5.3
-
-Jegy kodja: Mozi_Jegy_3
-Ules: 2/2
-Jegy ara: 1500
-Terem: terem2
+Terem: Spielberg terem
 

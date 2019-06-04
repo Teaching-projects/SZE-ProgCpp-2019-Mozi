@@ -1,3 +1,6 @@
+#ifndef AKCIO_HPP
+#define AKCIO_HPP
+
 #include <iostream>
 #include <string>
 
@@ -12,3 +15,4 @@ public:
 	
 
 };
+#endif

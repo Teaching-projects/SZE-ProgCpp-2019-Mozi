@@ -1,3 +1,5 @@
+#ifndef SZEK_HPP
+#define SZEK_HPP
 #pragma once
 class Szek
 {
@@ -34,3 +36,4 @@ public:
 
 };
 
+#endif
