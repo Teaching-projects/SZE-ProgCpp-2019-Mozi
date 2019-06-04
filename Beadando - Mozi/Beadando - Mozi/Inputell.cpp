@@ -3,10 +3,7 @@
 #include <iostream>
 #include <string>
 
-//bool inputell::szamell(int szam)
-//{
-//	
-//}
+
 
 bool Inputell::indexell(int szam)
 {
@@ -30,13 +27,14 @@ bool Inputell::inell(char karakter)
 	}
 	else
 	{
+		std::cout << std::endl << "Nincs ilyen lehetoseg!";
 		return false;
 	}
 }
 
 bool Inputell::menuell(int szam)
 {
-	if (szam < 1 || szam >3)
+	if (szam < 1 || szam >3 )
 	{
 		std::cout<<"Nincs ilyen lehetoseg!"<<std::endl;
 		return false;
@@ -46,13 +44,4 @@ bool Inputell::menuell(int szam)
 		return true;
 	}
 }
-
-//bool Inputell::filmszamell(int szam)
-//{
-//	int filmdb = 0;
-//	filmdb = Tarolo::filmdb();
-//	
-//}
-
-
 

@@ -18,7 +18,7 @@ class Szamla
 
 		
 		static void szamlaJegy(Felhasznalo f, std::vector<Jegy> jegyek, Terem t);
-		static void szamlaBerlet(Felhasznalo f, Berlet b, Terem t);
+		
 
 };
 #endif

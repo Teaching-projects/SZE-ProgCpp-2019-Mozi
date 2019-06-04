@@ -21,7 +21,9 @@ void Tarolo::jelenlegiFilmek()
 	for (Film f : filmek)
 	{
 		
-		std::cout << f.getCim();
+
+		f.filmKiir();
+
 		std::cout << std::endl;
 		i++;
 	}

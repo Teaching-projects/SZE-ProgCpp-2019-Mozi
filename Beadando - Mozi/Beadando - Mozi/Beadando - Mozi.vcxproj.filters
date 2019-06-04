@@ -45,9 +45,6 @@
     <ClCompile Include="Akcio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ervenyes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Szamla.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -87,9 +84,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Ertekeles.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ervenyes.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Film.hpp">

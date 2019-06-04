@@ -145,7 +145,6 @@
     <ClCompile Include="Akcio.cpp" />
     <ClCompile Include="Berlet.cpp" />
     <ClCompile Include="Ertekeles.cpp" />
-    <ClCompile Include="Ervenyes.cpp" />
     <ClCompile Include="Felhasznalo.cpp" />
     <ClCompile Include="Film.cpp" />
     <ClCompile Include="Helyszin.cpp" />
@@ -167,7 +166,6 @@
     <ClInclude Include="Akcio.hpp" />
     <ClInclude Include="Berlet.hpp" />
     <ClInclude Include="Ertekeles.hpp" />
-    <ClInclude Include="Ervenyes.hpp" />
     <ClInclude Include="Felhasznalo.hpp" />
     <ClInclude Include="Film.hpp" />
     <ClInclude Include="Helyszin.hpp" />

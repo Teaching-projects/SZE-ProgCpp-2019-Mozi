@@ -7,7 +7,6 @@
 #include "Akcio.hpp"
 #include "Terem.hpp"
 #include "Szemelyzet.hpp"
-#include "Ervenyes.hpp"
 #include "Berlet.hpp"
 #include "Mozi.hpp"
 #include "Kijelzes.hpp"
@@ -25,45 +24,15 @@ int main() {
 
 	
 
-	/*Ertekeles e1 = Ertekeles("Teszt", 5);
-	Ertekeles e2 = Ertekeles("Teszt2", 10);
-
-	f1.ertekelesHozzaad(e1);
-	f1.ertekelesHozzaad(e2);
-
-	f1.filmKiir();*/
-
-	
-
-	//ToDo: cinema felulet, fh + jelszo inputell, szamla txt export, jegyhez rendelni termet helyszint, 1 2 3 inputell, szamlat ker e vegen, 3 kilepes
-	//destruktor, headeguard; loginnal a felhasznalo valasszon helyszint, ahol külön filmek/termek vannak.
-
-	//sql vagy nosql-> local szerver -> ezt telepíteni, valamint hogy van c++ api --> include header / link
-
-	
-	
-	
-
-	/*
-	
-	Helyszin h1 = Helyszin("Nev1","Cim1","8:00","22:00");
-	Helyszin h2 = Helyszin("Nev2", "Cim2", "8:00", "22:00");
-
-	h1.hozzaad(t1); h1.hozzaad(t2);
-
-	Mozi m1 = Mozi("Cinema City");
-
-	m1.hozzaad(h1); m1.hozzaad(h2);
-	m1.kiir();*/
+	Ertekeles e1 = Ertekeles("Kozepes", 5);
+	Ertekeles e2 = Ertekeles("Legjobb", 10);
+	Ertekeles e3 = Ertekeles("Kaki", 1);
+	Ertekeles e4 = Ertekeles("Meh", 3);
 
 	Mozi cinemaCity = Mozi("Cinema City Magyarorszag");
 	Helyszin h1 = Helyszin("Gyor","Vasvari Pal utca 1","8:00","02:00");
-	Helyszin h2 = Helyszin("Budapest", "Kerepesi utca 9", "8:00", "02:00");
+
 	cinemaCity.hozzaad(h1);
-	cinemaCity.hozzaad(h2);
-
-
-
 	
 	Tarolo t = Tarolo();
 	
@@ -74,7 +43,13 @@ int main() {
 	Film f2 = Film("Pokember", "Sam Raimi", Nyelv::Angol, Tipus::Thriller);
 	Film f3 = Film("A sikeres C++ vizsga", "Orban Mate - Zsigmond Richard - Szekendi Balazs", Nyelv::Magyar, Tipus::Vigjatek);
 
-	Felhasznalo felh = Felhasznalo("Felhasznaloneve", "jelszava", "Neve", "Szuldata", "email-e");
+	f1.ertekelesHozzaad(e1);
+	f2.ertekelesHozzaad(e4);
+	f1.ertekelesHozzaad(e3);
+	f3.ertekelesHozzaad(e2);
+
+	Szemelyzet sz = Szemelyzet("fh", "jelszo", "nev", "szuldat", "email",20000, "beosztas", 10000);
+	Felhasznalo felh = Felhasznalo("Felhasznaloneve", "jelszava", "Neve", "Szuldata", "email-e", 100000);
 
 	Terem t1 = Terem(1, "Spielberg terem", 50, true);
 	Terem t2 = Terem(2, "Hitchcock terem", 20, false);
@@ -88,8 +63,6 @@ int main() {
 	t.teremHozzaad(t2);
 	t.teremHozzaad(t3);
 
-
-	//t.listaKiir();
 	int filmindex = 0;
 	int teremindex = 0;
 	int jegydb = 0;
@@ -101,9 +74,6 @@ int main() {
 	int temp = 0;
 
 
-	/*std::time_t t = std::time(0);
-	std::tm* now = std::localtime(&t);*/
-
 	time_t most = time(0);
 	tm *ji = localtime(&most);
 	
@@ -114,13 +84,16 @@ int main() {
 	
 	int ar = 0;
 
+	cinemaCity.kiir();
+	std::cout <<std::endl << std::endl;
+
+
 	k.kezdooldal();
 	std::cin >> input;
-	while (!Inputell::menuell(input) || input!=3)
+	while (!Inputell::menuell(input) || input!=3 )
 	{
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		
 		
 
 		if (input == 1)
@@ -129,12 +102,8 @@ int main() {
 			k.jelenlegiFilmek(t);
 			std::cout << std::endl;
 			system("pause");
-			//std::cout << std::endl<< "nyomjon entert a folytatashoz!";
-			//std::cout << "input: " << input;
-			//getchar();
 			system("cls");
 			k.kezdooldal();
-			//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cin >> input;
 			
 		}
@@ -188,16 +157,19 @@ int main() {
 
 			if (tipusindex == 1) {
 				ar = Akcio::alapar;
+				felh.setPenztarca(felh.getPenztarca() - ar*jegydb);
 			}
 
 			else if (tipusindex == 2)
 			{
 				ar = Akcio::getDiakAr();
+				felh.setPenztarca(felh.getPenztarca() - ar * jegydb);
 			}
 
 			else if (tipusindex == 3)
 			{
 				ar = Akcio::getNyugdijasAr();
+				felh.setPenztarca(felh.getPenztarca() - ar * jegydb);
 			}
 
 
@@ -206,13 +178,6 @@ int main() {
 				t.termek[teremindex - 1].ulesKiir();
 				kodindex++;
 
-				/*std::cout << std::endl << "Sor: ";
-				std::cin >> sorindex;*/
-				
-
-				
-
-				//while ( std::cout << std::endl << "Sor: ", std::cin >> sorindex,  !Inputell::indexell(sorindex)); nem mukodott
 				std::cout << std::endl << "Sor: ";
 				std::cin >> sorindex;
 				while (!Inputell::indexell(sorindex))
@@ -225,7 +190,6 @@ int main() {
 					
 				}
 
-				//while (std::cout << std::endl << "Oszlop: ", std::cin >> oszlopindex, !Inputell::indexell(oszlopindex)); nem mukodott
 				std::cout << std::endl << "Oszlop: ";
 				std::cin >> oszlopindex;
 				while (!Inputell::indexell(oszlopindex))
@@ -242,7 +206,6 @@ int main() {
 				while (!t.termek[teremindex - 1].ugyanodaFoglal(sorindex-1, oszlopindex-1))
 				{
 					t.termek[teremindex - 1].ulesKiir();
-					//while (std::cout << std::endl << "Sor: ", std::cin >> sorindex, !Inputell::indexell(sorindex)); nem mukodott
 					std::cout << std::endl << "Sor: ";
 					std::cin >> sorindex;
 					while (!Inputell::indexell(sorindex))
@@ -256,7 +219,7 @@ int main() {
 					}
 
 					
-					//while (std::cout << std::endl << "Oszlop: ", std::cin >> oszlopindex, !Inputell::indexell(oszlopindex)); nem mukodott
+				
 					std::cout << std::endl << "Oszlop: ";
 					std::cin >> oszlopindex;
 					while (!Inputell::indexell(oszlopindex))
@@ -277,14 +240,24 @@ int main() {
 				jegyek.push_back(jegy);
 				
 			}
-			while (std::cout << std::endl << "Ker szamlat a vasarlasrol? (I/N): ", std::cin >> szamlae, !Inputell::inell(szamlae));
-			//std::cout << std::endl << "Ker szamlat a vasarlasrol? (I/N): ";
+			std::cout << std::endl << "Ker szamlat a vasarlasrol? (I/N): ";
+			std::cin >> szamlae;
+			while (!Inputell::inell(szamlae))
+			{
+
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				std::cout << std::endl << "Ker szamlat a vasarlasrol? (I/N): ";
+				std::cin >> szamlae;
+
+			}
 			
-			//std::cin >> szamlae;
+
 			if (toupper(szamlae) == 'I')
 			{
 				Szamla::szamlaJegy(felh, jegyek, t.termek[teremindex-1]);
 				std::cout << std::endl << "Szamla kiadva!" << std::endl;
+				std::cout << "Felhasznalo maradek penze: " << felh.getPenztarca();
 			}
 			else if (toupper(szamlae) == 'N')
 			{
@@ -293,19 +266,18 @@ int main() {
 				{
 					j.jegyKiir();
 				}
+				std::cout << "Felhasznalo maradek penze: " << felh.getPenztarca();
 			}
-			//std::cout << std::endl<< "Nyomjon entert a folytatashoz!";
-			//getchar(); 
-			std::cout << std::endl;
+			std::cout << std::endl << std::endl << "A program leall, megvan a kettes!"<< std::endl;
+			exit(0);
+
+			/*std::cout << std::endl;
 			system("pause");
 			system("cls");
-			k.kezdooldal();
+			k.kezdooldal();*/
 
-			//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cin >> input;
-			
-
-			
+			//std::cin >> input;
+	
 		}
 
 		else if (input == 3)
@@ -318,47 +290,6 @@ int main() {
 			std::cin >> input;
 			
 		}
-
-		//}
-
-
-
-		//std::cin.ignore();
-
-
-		/*
-		Felhasznalo f1 = Felhasznalo("Felhasznaloneve", "jelszava", "Neve", "Szuldata", "email-e");
-		Jegy j = Jegy("123", 2, 3, 5000, 2019, 3, 12);
-		Berlet b1 = Berlet(8000,"1233",2019, 2, 1, 2019, 3, 30);
-		Terem t1 = Terem(1, "terem1", 50, true);
-	*/
-
-
-	//Szamla sz1 = Szamla();
-	//sz1.szamlaBerlet(f1, b1, t1);
-	//sz1.szamlaJegy(f1,j,t1);
-
-
-
-
-
-
-		//(std::string kod, int sor, int oszlop, int ar, int ev, int honap, int nap)
-		/*Jegy j = Jegy("123", 2, 3, 5000, 2019, 3, 12);
-
-		std::cout << j.isErvenyes(2019,3,12) << std::endl;*/
-
-
-		//Berlet b1 = Berlet(2019, 2, 1, 2019, 3, 30); //Hibaellenõrzés
-		//std::cout << b1.isErvenyes(2019, 2, 1);
-
-		//Terem t1 = Terem(1, "terem1", 50, true);
-		//Terem t2 = Terem(2, "terem2", 20, false);
-		//Helyszin h1 = Helyszin("Gyori","Bartok Bela 59","8:00","23:00");
-		////std::string felhasznalonev, std::string jelszo, std::string nev, std::string szuldat, std::string email
-		////Szemelyzet sz = Szemelyzet("asd", "asd", "asd", "asd", "asd", "asd");
-		//Szemelyzet sz = Szemelyzet("fh", "jelszo", "nev", "szuldat", "email", "beosztas");
-		//std::cout << sz.getFelhasznalonev() << sz.getJelszo()<<sz.getNev()<<sz.getEmail()<<sz.getBeosztas();
 
 	}
 	return 0;

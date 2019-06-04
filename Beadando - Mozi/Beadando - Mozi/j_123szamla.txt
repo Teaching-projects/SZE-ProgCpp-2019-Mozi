@@ -1,7 +1,0 @@
-Vevo neve: Neve
-Vasarlas napja: 2019.3.12
-
-Jegy kodja: 123
-Ules: 2/3
-Jegy ara: 5000
-Terem: terem1

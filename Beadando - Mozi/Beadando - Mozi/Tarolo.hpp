@@ -21,7 +21,7 @@ public:
 	void jelenlegiFilmek();
 	std::vector<Film> filmek;
 	std::vector<Terem> termek;
-	//int filmdb();
+
 
 	int i = 0;
 

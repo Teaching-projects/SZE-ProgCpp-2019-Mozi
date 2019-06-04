@@ -3,13 +3,13 @@
 #include <iostream>
 #include <string>
 #include "Napok.cpp"
-#include "Ervenyes.hpp"
+
 #include "Film.hpp"
 #include "Helyszin.hpp"
 
 
 
-class Jegy : public Ervenyes
+class Jegy 
 {
 private:
 	std::string kod;

@@ -12,19 +12,31 @@ private:
 	std::string nev;
 	std::string szuldat;
 	std::string email;
+	int penztarca;
 
 public:
-	Felhasznalo(std::string felhasznalonev, std::string jelszo, std::string nev, std::string szuldat, std::string email)
+	Felhasznalo(std::string felhasznalonev, std::string jelszo, std::string nev, std::string szuldat, std::string email, int penztarca)
 	{
 		this->felhasznalonev = felhasznalonev;
 		this->jelszo = jelszo;
 		this->nev = nev;
 		this->szuldat = szuldat;
 		this->email = email;
+		this->penztarca = penztarca;
 	}
 
-	bool felhasznalonevEll(std::string felhasznalonev);
-	bool jelszoEll(std::string jelszo);
+	void felhasznaloKiir();
+
+
+	void setPenztarca(int penztarca)
+	{
+		this->penztarca = penztarca;
+	}
+
+	int getPenztarca()
+	{
+		return this->penztarca;
+	}
 
 	std::string getFelhasznalonev()
 	{
