@@ -1,29 +1,9 @@
-#include <iostream>
-#include <string>
-#include <ctime>
-#include "Ertekeles.hpp"
-#include "Film.hpp"
-#include "Jegy.hpp"
-#include "Akcio.hpp"
-#include "Terem.hpp"
-#include "Szemelyzet.hpp"
-#include "Berlet.hpp"
-#include "Mozi.hpp"
-#include "Kijelzes.hpp"
-#include "Tarolo.hpp"
-#include "Szamla.hpp"
-#include "Mozi.hpp"
-#include "Helyszin.hpp"
-#include "Inputell.h"
-#include <vector>
+#include "main.hpp"
 
+//#include "Mozi.hpp"
+//#include <vector>
 
-
-int main() {
-	
-
-	
-
+void Main::start() {
 	Ertekeles e1 = Ertekeles("Kozepes", 5);
 	Ertekeles e2 = Ertekeles("Legjobb", 10);
 	Ertekeles e3 = Ertekeles("Kaki", 1);
@@ -292,5 +272,4 @@ int main() {
 		}
 
 	}
-	return 0;
 }
