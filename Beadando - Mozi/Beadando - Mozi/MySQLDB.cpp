@@ -4,8 +4,9 @@ int qstate;
 
 void MySQLDB::menu() {
 	char choice;
-	int ok = 0;
+	bool ok = 0;
 
+	system("cls");
 	puts("Kérem válasszon az alábbi menüpontok közül:\n");
 	puts("1: Bejelentkezés");
 	puts("2: Demo üzemmód (login nélkül)");
@@ -13,8 +14,8 @@ void MySQLDB::menu() {
 	puts("4: Kilépés");
 
 	do {
-		printf("\nA választott menüpont: ");
-		cin >> choice;
+		std::cout << "\nA választott menüpont: ";
+		std::cin >> choice;
 		if (choice == '1') {
 			login();
 			ok = 1;
@@ -39,6 +40,7 @@ void MySQLDB::menu() {
 void MySQLDB::login() {
 	MYSQL* conn;
 
+	system("CLS");
 	puts("Kapcsolódás az adatbázishoz...");
 	conn = mysql_init(0);
 	conn = mysql_real_connect(conn, "localhost", "root", "root", "MOZI", 3306, NULL, 0);
@@ -48,14 +50,14 @@ void MySQLDB::login() {
 		char user[255];
 		string user2;
 		short megvan = 0;
-		int ok = 0;
-		int ok1 = 0;
-		int kilep = 0;
+		bool ok = 0;
+		bool ok1 = 0;
+		bool kilep = 0;
 
 
 		do {
-			printf("E-mail cím: ");
-			cin >> user;
+			std::cout << "E-mail cím: ";
+			std::cin >> user;
 			user2 = user;
 			megvan = lekerdez(conn, "SELECT email FROM login", user2);
 			if (user2.compare("EXIT") == 0 || user2.compare("exit") == 0) {
@@ -65,6 +67,9 @@ void MySQLDB::login() {
 			}
 			else if (megvan < 0) {
 				puts("Hiba a felhasználó lekérdezése során!");
+				mysql_close;
+				puts("Visszatérés a fõmenübe 5 másodperc múlva.");
+				system("TIMEOUT /T 5");
 			}
 			else if (!megvan)
 				puts("Nem létezik ilyen E-mail cím!");
@@ -74,8 +79,8 @@ void MySQLDB::login() {
 				string pass2;
 				do {
 					megvan = 0;
-					printf("Jelszó: ");
-					cin >> pass;
+					std::cout << "Jelszó: ";
+					std::cin >> pass;
 					pass2 = pass;
 					megvan = lekerdez(conn, "SELECT jelszo FROM login WHERE email = '" + user2 + "'", pass2);
 					if (pass2.compare("EXIT") == 0 || pass2.compare("exit") == 0) {
@@ -84,6 +89,9 @@ void MySQLDB::login() {
 					}
 					else if (megvan < 0) {
 						puts("Hiba a jelszó lekérdezése során!");
+						mysql_close;
+						puts("Visszatérés a fõmenübe 5 másodperc múlva.");
+						system("TIMEOUT /T 5");
 					}
 					else if (!megvan)
 						puts("Hibás jelszó!");
@@ -98,12 +106,17 @@ void MySQLDB::login() {
 		if (kilep)
 			menu();
 		else {
+			system("CLS");
 			puts("Sikeres bejelentkezés!\n");
 			if (!megvan) {
+				mysql_close;
 				usermenu();
 			}
 			else if (megvan < 0) {
 				puts("Sikertelen admin lekérdezés!");
+				mysql_close;
+				puts("Visszatérés a fõmenübe 5 másodperc múlva.");
+				system("TIMEOUT /T 5");
 			}
 			else {
 				adminmenu(conn);
@@ -120,18 +133,21 @@ void MySQLDB::start() {
 }
 
 void MySQLDB::keszitok() {
+	system("CLS");
 	puts("Készítették:\n");
 	puts("Orbán Máté - FL8F6V");
 	puts("Szekendi Balázs - FBET1V");
 	puts("Zsigmond Richárd Tamás - PJ92ND");
-	puts("\nVisszatérés a fõmenübe.");
+	puts("\nVisszatérés a fõmenübe 10 másodperc múlva.");
+	system("TIMEOUT /T 10");
 	menu();
 }
 
 void MySQLDB::adminmenu(MYSQL* conn) {
 	char choice;
-	int ok = 0;
+	bool ok = 0;
 
+	system("CLS");
 	puts("Kérem válasszon az alábbi menüpontok közül:\n");
 	puts("1: Program indítása");
 	puts("2: Felhasználó hozzáadása");
@@ -140,8 +156,8 @@ void MySQLDB::adminmenu(MYSQL* conn) {
 	puts("5: Kijelentkezés");
 
 	do {
-		printf("A választott menüpont: ");
-		cin >> choice;
+		std::cout << "A választott menüpont: ";
+		std::cin >> choice;
 		if (choice == '1') {
 			start();
 			ok = 1;
@@ -169,15 +185,15 @@ void MySQLDB::adminmenu(MYSQL* conn) {
 
 void MySQLDB::usermenu() {
 	char choice;
-	int ok = 0;
+	bool ok = 0;
 
 	puts("Kérem válasszon az alábbi menüpontok közül:\n");
 	puts("1: Program indítása");
 	puts("2: Kijelentkezés");
 
 	do {
-		printf("A választott menüpont: ");
-		cin >> choice;
+		std::cout << "A választott menüpont: ";
+		std::cin >> choice;
 		if (choice == '1') {
 			start();
 			ok = 1;
@@ -193,8 +209,9 @@ void MySQLDB::usermenu() {
 
 void MySQLDB::modusermenu(MYSQL* conn) {
 	char choice;
-	int ok = 0;
+	bool ok = 0;
 
+	system("CLS");
 	puts("Felhasználó módosítása\n");
 	puts("1: E-mail cím módosítása");
 	puts("2: Jelszó módosítása");
@@ -202,8 +219,8 @@ void MySQLDB::modusermenu(MYSQL* conn) {
 	puts("4: Vissza az admin menübe");
 
 	do {
-		printf("A választott menüpont: ");
-		cin >> choice;
+		std::cout << "A választott menüpont: ";
+		std::cin >> choice;
 		if (choice == '1') {
 			modmail(conn);
 			ok = 1;
@@ -229,26 +246,30 @@ void MySQLDB::modmail(MYSQL* conn) {
 	char user[255];
 	string user2;
 	short megvan = 0;
-	int ok = 0;
+	bool ok = 0;
 
-	printf("Adja meg a módosítandó felhasználó E-mail címét: ");
-	cin >> user;
+	system("CLS");
+	std::cout << "Adja meg a módosítandó felhasználó E-mail címét: ";
+	std::cin >> user;
 	user2 = user;
 	megvan = lekerdez(conn, "SELECT email FROM login", user2);
 	if (megvan < 0) {
 		puts("Hiba a felhasználó lekérdezése során!");
+		mysql_close;
+		puts("Visszatérés a felhasználó módosítása menübe 5 másodperc múlva.");
+		system("TIMEOUT /T 5");
 	}
 	else if (!megvan)
 		puts("Nem található ilyen felhasználó!");
 	else {
 		do {
-			printf("Az új E-mail cím: ");
+			std::cout << "Az új E-mail cím: ";
 			char newuser[255];
 			string newuser2;
-			cin >> newuser;
+			std::cin >> newuser;
 			newuser2 = newuser;
 			if (!emaile(newuser))
-				printf("Hiba: ");
+				std::cout << "Hiba: ";
 			else {
 				ok = 1;
 				megvan = modositmail(conn, user2, newuser2);
@@ -256,101 +277,136 @@ void MySQLDB::modmail(MYSQL* conn) {
 		} while (!ok);
 	}
 
+	system("CLS");
 	if (!megvan) {
 		puts("Sikertelen módosítás");
+		mysql_close;
+		puts("Visszatérés a felhasználó módosítása menübe 5 másodperc múlva.");
+		system("TIMEOUT /T 5");
 	}
 	else if (megvan < 0) {
 		puts("Sikertelen módosítás (lekérdezés hiba)!");
+		mysql_close;
+		puts("Visszatérés a felhasználó módosítása menübe 5 másodperc múlva.");
+		system("TIMEOUT /T 5");
 	}
 	else {
 		puts("Sikeres módosítás!");
+		system("TIMEOUT /T 2");
 		modusermenu(conn);
 	}
+	mysql_close;
 }
 
 void MySQLDB::modpass(MYSQL* conn) {
 	char user[255];
 	string user2;
 	short megvan = 0;
-	int ok = 0;
-	int ok1 = 0;
+	bool ok = 0;
+	bool ok1 = 0;
 
-	printf("Adja meg a módosítandó felhasználó E-mail címét: ");
-	cin >> user;
+	system("CLS");
+	std::cout << "Adja meg a módosítandó felhasználó E-mail címét: ";
+	std::cin >> user;
 	user2 = user;
 	megvan = lekerdez(conn, "SELECT email FROM login", user2);
 	if (megvan < 0) {
 		puts("Hiba a felhasználó lekérdezése során!");
+		puts("Visszatérés a felhasználó módosítása menübe 5 másodperc múlva.");
+		system("TIMEOUT /T 5");
+		modusermenu(conn);
 	}
 	else if (!megvan) {
 		puts("Nem található ilyen felhasználó!");
-
+		puts("Visszatérés a felhasználó módosítása menübe 5 másodperc múlva.");
+		system("TIMEOUT /T 5");
+		modusermenu(conn);
 	}
 	else {
 		do {
-			printf("Adja meg a módosítandó felhasználó régi jelszavát: ");
+			std::cout << "Adja meg a módosítandó felhasználó régi jelszavát: ";
 			char oldpass[33];
 			string oldpass2;
-			cin >> oldpass;
+			std::cin >> oldpass;
 			oldpass2 = oldpass;
 			megvan = lekerdez(conn, "SELECT jelszo FROM login WHERE email = '" + user2 + "'", oldpass2);
 			if (megvan < 0) {
 				puts("Hiba a régi jelszó lekérdezése során!");
+				puts("Visszatérés a felhasználó módosítása menübe 5 másodperc múlva.");
+				system("TIMEOUT /T 5");
+				modusermenu(conn);
 			}
 			else if (!megvan) {
 				puts("Helytelen jelszó!");
 			}
 			else {
 				ok = 1;
-				printf("Az új jelszó: ");
+				std::cout << "Az új jelszó: ";
 				char newpass[33];
 				string newpass2;
-				cin >> newpass;
+				std::cin >> newpass;
 				newpass2 = newpass;
 				megvan = modositpass(conn, oldpass2, newpass2);
 			}
 		} while (!ok);
 	}
 
+	system("CLS");
 	if (!megvan) {
 		puts("Sikertelen módosítás");
+		puts("Visszatérés a felhasználó módosítása menübe 5 másodperc múlva.");
+		system("TIMEOUT /T 5");
+		modusermenu(conn);
 	}
 	else if (megvan < 0) {
 		puts("Sikertelen módosítás (lekérdezés hiba)!");
+		puts("Visszatérés a felhasználó módosítása menübe 5 másodperc múlva.");
+		system("TIMEOUT /T 5");
+		modusermenu(conn);
 	}
 	else {
 		puts("Sikeres módosítás!");
+		system("TIMEOUT /T 2");
 		modusermenu(conn);
 	}
+	mysql_close;
 }
 
 void MySQLDB::modperm(MYSQL* conn) {
 	char user[255];
 	string user2;
 	short megvan = 0;
-	int ok = 0;
-	int ok1 = 0;
+	bool ok = 0;
+	bool ok1 = 0;
 
-	printf("Adja meg a módosítandó felhasználó E-mail címét: ");
-	cin >> user;
+	system("CLS");
+	std::cout << "Adja meg a módosítandó felhasználó E-mail címét: ";
+	std::cin >> user;
 	user2 = user;
 	megvan = lekerdez(conn, "SELECT email FROM login", user2);
 	if (megvan < 0) {
 		puts("Hiba a felhasználó lekérdezése során!");
+		system("TIMEOUT /T 3");
+		modusermenu(conn);
 	}
 	else if (!megvan) {
 		puts("Nem található ilyen felhasználó!");
+		system("TIMEOUT /T 3");
+		modusermenu(conn);
 	}
 	else {
 		do {
-			printf("Adja meg a módosítandó felhasználó jelszavát: ");
+			std::cout << "Adja meg a módosítandó felhasználó jelszavát: ";
 			char pass[33];
 			string pass2;
-			cin >> pass;
+			std::cin >> pass;
 			pass2 = pass;
 			megvan = lekerdez(conn, "SELECT jelszo FROM login WHERE email = '" + user2 + "'", pass2);
 			if (megvan < 0) {
 				puts("Hiba a jelszó lekérdezése során!");
+				puts("Visszatérés a felhasználó módosítása menübe 5 másodperc múlva.");
+				system("TIMEOUT /T 5");
+				modusermenu(conn);
 			}
 			else if (!megvan) {
 				puts("Helytelen jelszó!");
@@ -358,9 +414,9 @@ void MySQLDB::modperm(MYSQL* conn) {
 			else {
 				ok = 1;
 				do {
-					printf("Adja meg az új jogosultságot! [0 - User, 1 - Admin]: ");
+					std::cout << "Adja meg az új jogosultságot! [0 - User, 1 - Admin]: ";
 					char admin[5];
-					cin >> admin;
+					std::cin >> admin;
 					if (strlen(admin) != 1)
 						puts("Csak egy karaktert adhat meg!");
 					if (!((admin[0] == '0') || (admin[0] == '1')))
@@ -374,34 +430,44 @@ void MySQLDB::modperm(MYSQL* conn) {
 		} while (!ok);
 	}
 
+	system("CLS");
 	if (!megvan) {
 		puts("Sikertelen módosítás");
+		puts("Visszatérés a felhasználó módosítása menübe 5 másodperc múlva.");
+		system("TIMEOUT /T 5");
+		modusermenu(conn);
 	}
 	else if (megvan < 0) {
 		puts("Sikertelen módosítás (lekérdezés hiba)!");
+		puts("Visszatérés a felhasználó módosítása menübe 5 másodperc múlva.");
+		system("TIMEOUT /T 5");
+		modusermenu(conn);
 	}
 	else {
 		puts("Sikeres módosítás!");
+		system("TIMEOUT /T 5");
 		modusermenu(conn);
 	}
+	mysql_close;
 }
 
 void MySQLDB::adduser(MYSQL* conn) {
 	char email[255];
 	string email2;
-	int ok = 0;
-	int ok1 = 0;
-	int ok2 = 0;
+	bool ok = 0;
+	bool ok1 = 0;
+	bool ok2 = 0;
 	short megvan;
-	int megsem = 0;
+	bool megsem = 0;
 
+	system("CLS");
 	puts("Felhasználó hozzáadása\n");
 
 	do {
-		printf("E-mail cím: ");
-		cin >> email;
+		std::cout << "E-mail cím: ";
+		std::cin >> email;
 		if (!emaile(email))
-			printf("Hiba: ");
+			std::cout << "Hiba: ";
 		else {
 			email2 = email;
 			megvan = lekerdez(conn, "SELECT email FROM login", email2);
@@ -413,6 +479,10 @@ void MySQLDB::adduser(MYSQL* conn) {
 			}
 			else if (megvan < 0) {
 				puts("Hiba a felhasználó lekérdezése során!");
+				mysql_close;
+				puts("Visszatérés az adminmenübe 5 másodperc múlva.");
+				system("TIMEOUT /T 5");
+				adminmenu(conn);
 			}
 			else if (megvan > 0) {
 				puts("Már található ilyen felhasználó!");
@@ -422,8 +492,8 @@ void MySQLDB::adduser(MYSQL* conn) {
 				char pass[33];
 				string pass2;
 				do {
-					printf("Jelszó: ");
-					cin >> pass;
+					std::cout << "Jelszó: ";
+					std::cin >> pass;
 					pass2 = pass;
 					if (pass2.compare("CANCEL") == 0 || pass2.compare("cancel") == 0) {
 						ok1 = 1;
@@ -434,8 +504,8 @@ void MySQLDB::adduser(MYSQL* conn) {
 						ok1 = 1;
 						do {
 							char admin[10];
-							printf("Admin [0 - Nem, 1 - Igen]: ");
-							cin >> admin;
+							std::cout << "Admin [0 - Nem, 1 - Igen]: ";
+							std::cin >> admin;
 							if (strcmp(admin, "CANCEL") == 0 || strcmp(admin, "cancel") == 0) {
 								ok1 = 1;
 								ok2 = 1;
@@ -462,27 +532,36 @@ void MySQLDB::adduser(MYSQL* conn) {
 	else {
 		if (megvan == -1) {
 			puts("Sikertelen rögzítés(lekérdezés hiba)!");
+			puts("Visszatérés az adminmenübe 5 másodperc múlva.");
+			system("TIMEOUT /T 5");
+			adminmenu(conn);
 		}
 		else if (megvan == 0) {
 			puts("Sikertelen lekérdezés!");
+			puts("Visszatérés az adminmenübe 5 másodperc múlva.");
+			system("TIMEOUT /T 5");
+			adminmenu(conn);
 		}
 		else {
 			puts("Sikeres rögzítés!");
+			system("TIMEOUT /T 2");
 			adminmenu(conn);
 		}
 	}
+	mysql_close;
 }
 
 void MySQLDB::deluser(MYSQL* conn) {
 	short megvan;
-	int ok = 0;
-	int megsem = 0;
+	bool ok = 0;
+	bool megsem = 0;
 
+	system("CLS");
 	do {
-		printf("Adja meg a törölni kívánt felhasználónevet: ");
+		std::cout << "Adja meg a törölni kívánt felhasználónevet: ";
 		char user[255];
 		string user2;
-		cin >> user;
+		std::cin >> user;
 		user2 = user;
 		megvan = lekerdez(conn, "SELECT email FROM login", user2);
 		if (user2.compare("CANCEL") == 0 || user2.compare("cancel") == 0) {
@@ -491,6 +570,10 @@ void MySQLDB::deluser(MYSQL* conn) {
 		}
 		else if (megvan < 0) {
 			puts("Hiba a felhasználó lekérdezése során!");
+			mysql_close;
+			puts("Visszatérés az adminmenübe 5 másodperc múlva.");
+			system("TIMEOUT /T 5");
+			adminmenu(conn);
 		}
 		else if (megvan == 0) {
 			puts("Nem található ilyen felhasználó!");
@@ -507,15 +590,23 @@ void MySQLDB::deluser(MYSQL* conn) {
 	else {
 		if (megvan == -1) {
 			puts("Sikertelen rögzítés(lekérdezés hiba)!");
+			puts("Visszatérés az adminmenübe 5 másodperc múlva.");
+			system("TIMEOUT /T 5");
+			adminmenu(conn);
 		}
 		else if (megvan == 0) {
 			puts("Sikertelen lekérdezés!");
+			puts("Visszatérés az adminmenübe 5 másodperc múlva.");
+			system("TIMEOUT /T 5");
+			adminmenu(conn);
 		}
 		else {
 			puts("Sikeres törlés!");
+			system("TIMEOUT /T 2");
 			adminmenu(conn);
 		}
 	}
+	mysql_close;
 }
 
 int MySQLDB::admine(MYSQL* conn, string query) {
@@ -659,15 +750,15 @@ int MySQLDB::torol(MYSQL* conn, string kit) {
 }
 
 int MySQLDB::emaile(char s[]) {
-	int temp = 0;
-	int i = 0;
+	unsigned short temp = 0;
+	unsigned short i = 0;
 
 	if (s[strlen(s) - 1] == '.') {
-		printf("Nem végzõdet ponttal a cím!");
+		std::cout << "Nem végzõdet ponttal a cím!";
 		return 0;
 	}
 	if (s[0] == '.') {
-		printf("Nem kezdõdhet ponttal a cím!");
+		std::cout << "Nem kezdõdhet ponttal a cím!";
 		return 0;
 	}
 
@@ -677,11 +768,11 @@ int MySQLDB::emaile(char s[]) {
 		i++;
 	}
 	if (!temp) {
-		printf("Hiányzó '@' karakter!");
+		std::cout << "Hiányzó '@' karakter!";
 		return 0;
 	}
 	else if (temp > 1) {
-		printf("Túl sok '@' karakter!");
+		std::cout << "Túl sok '@' karakter!";
 		return 0;
 	}
 	else {
@@ -691,7 +782,7 @@ int MySQLDB::emaile(char s[]) {
 		while (s[i] != '\0') {
 			if (s[i] == '.') {
 				if (s[i + 1] == '.') {
-					printf("Nem állhat több pont egymás mellett!");
+					std::cout << "Nem állhat több pont egymás mellett!";
 					return 0;
 				}
 			}
@@ -702,11 +793,11 @@ int MySQLDB::emaile(char s[]) {
 		while (s[i] != '@')
 			i++;
 		if (s[i - 1] == '.') {
-			printf("Nem állhat '.' a '@' karakter elõtt!");
+			std::cout << "Nem állhat '.' a '@' karakter elõtt!";
 			return 0;
 		}
 		else if (s[i + 1] == '.') {
-			printf("Nem állhat '.' a '@' karakter után!");
+			std::cout << "Nem állhat '.' a '@' karakter után!";
 			return 0;
 		}
 		else {
@@ -714,7 +805,7 @@ int MySQLDB::emaile(char s[]) {
 
 			while (s[i] != '@') {
 				if (!((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= '0' && s[i] <= '9') || (s[i] == '.') || (s[i] == '@'))) {
-					printf("Helytelen felhasználónév!");
+					std::cout << "Helytelen felhasználónév!";
 					return 0;
 				}
 				i++;
@@ -723,7 +814,7 @@ int MySQLDB::emaile(char s[]) {
 			i++;
 			while (s[i] != '\0') {
 				if (!((s[i] >= 'a' && s[i] <= 'z') || (s[i] == '.'))) {
-					printf("Helytelen domainnév!");
+					std::cout << "Helytelen domainnév!";
 					return 0;
 				}
 				i++;

@@ -2,21 +2,24 @@
 
 #include <iostream>
 #include <mysql.h>
-#include <string.h>
 
-using namespace std;
+using std::string;
 
 class MySQLDB{
 public:
 	MySQLDB::MySQLDB() {
-
+		puts("MySQLDB inicializálva.\n");
 	}
 
 	MySQLDB::~MySQLDB() {
-
+		puts("\nMySQLDB erõforrásai felszabadítva.\n");
+		system("PAUSE");
 	}
 	
 	static void menu();
+	
+
+private:
 	static int emaile(char s[]);
 	static void adminmenu(MYSQL* conn);
 	static void usermenu();
@@ -36,8 +39,4 @@ public:
 	static void modmail(MYSQL* conn);
 	static void modpass(MYSQL* conn);
 	static int rogzit(MYSQL* conn, string email, string jelszo, char admin);
-
-private:
-	
 };
-
