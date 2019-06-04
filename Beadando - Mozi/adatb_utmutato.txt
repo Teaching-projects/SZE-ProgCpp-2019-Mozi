@@ -68,7 +68,7 @@
 			mappába a lefordult exe mellé
 
 5) Adatbázis létrehozása
-	letöltöd az én adatbázismentésem(mozibackup.sql)
+	letöltöd vagy lehúzod (lényeg, hogy tudd hol van, mert a source-nál arra a mappára kell hivatkozni) az én adatbázismentésem(mozibackup.sql)
 	start->megkeresed a "MySQL 8.0 Command Line Client" progit, majd elindítod
 	kéri a jelszót, ami: root
 	beírod sorban a következõket
