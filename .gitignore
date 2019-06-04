@@ -31,4 +31,10 @@
 *.out
 *.app
 
+*.sdf
+*.sln
+*.VC.opendb
+.vs
+
+
 Debug
