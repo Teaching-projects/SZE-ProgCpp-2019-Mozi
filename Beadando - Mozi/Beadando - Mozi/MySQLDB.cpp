@@ -1,18 +1,19 @@
 #include "MySQLDB.hpp"
 
 int qstate;
+string current;
 
 void MySQLDB::menu() {
 	char choice;
 	bool ok = 0;
 
-	system("cls");
+	system("CLS");
 	puts("Kérem válasszon az alábbi menüpontok közül:\n");
 	puts("1: Bejelentkezés");
 	puts("2: Demo üzemmód (login nélkül)");
 	puts("3: Készítõk");
 	puts("4: Kilépés");
-
+	
 	do {
 		std::cout << "\nA választott menüpont: ";
 		std::cin >> choice;
@@ -33,7 +34,7 @@ void MySQLDB::menu() {
 			ok = 1;
 		}
 		else
-			puts("érvénytelen karakter!");
+			puts("Érvénytelen karakter!");
 	} while (!ok);
 }
 
@@ -59,13 +60,11 @@ void MySQLDB::login() {
 			std::cout << "E-mail cím: ";
 			std::cin >> email;
 			email2 = email;
-			if (!email2.compare("EXIT") || !email2.compare("exit")) {
+			if (!email2.compare("EXIT") || !email2.compare("exit"))
 				kilep = 1;
-			}
 			else if ((megvan = lekerdezes(conn, "SELECT email FROM login", email2)) < 0) {
 				puts("Hiba a felhasználó lekérdezése során!");
 				mysql_close;
-				puts("Visszatérés a fõmenübe 5 másodperc múlva.");
 				system("TIMEOUT /T 5");
 				menu();
 			}
@@ -84,7 +83,6 @@ void MySQLDB::login() {
 					if ((megvan = lekerdezes(conn, "SELECT jelszo FROM login WHERE email = '" + email2 + "'", pass2)) < 0) {
 						puts("Hiba a jelszó lekérdezése során!");
 						mysql_close;
-						puts("Visszatérés a fõmenübe 5 másodperc múlva.");
 						system("TIMEOUT /T 5");
 						menu();
 					}
@@ -112,18 +110,15 @@ void MySQLDB::login() {
 			else if (megvan < 0) {
 				puts("Sikertelen admin lekérdezés!");
 				mysql_close;
-				puts("Visszatérés a fõmenübe 5 másodperc múlva.");
 				system("TIMEOUT /T 5");
 				menu();
 			}
-			else {
+			else
 				adminmenu(conn);
-			}
 		}
 	}
-	else {
+	else
 		puts("Sikertelen kapcsolódás.\n");
-	}
 }
 
 void MySQLDB::start() {
@@ -154,7 +149,7 @@ void MySQLDB::adminmenu(MYSQL* conn) {
 	puts("5: Kijelentkezés");
 
 	do {
-		std::cout << "A választott menüpont: ";
+		std::cout << "\nA választott menüpont: ";
 		std::cin >> choice;
 		if (choice == '1') {
 			start();
@@ -190,7 +185,7 @@ void MySQLDB::usermenu() {
 	puts("2: Kijelentkezés");
 
 	do {
-		std::cout << "A választott menüpont: ";
+		std::cout << "\nA választott menüpont: ";
 		std::cin >> choice;
 		if (choice == '1') {
 			start();
@@ -254,9 +249,8 @@ void MySQLDB::modmail(MYSQL* conn) {
 		std::cout << "Adja meg a módosítandó felhasználó E-mail címét: ";
 		std::cin >> email;
 		email2 = email;
-		if (!email2.compare("CANCEL") || !email2.compare("cancel")) {
+		if (!email2.compare("CANCEL") || !email2.compare("cancel"))
 			megsem = 1;
-		}
 		else {
 			if (!emaile(email))
 				std::cout << "\n";
@@ -277,6 +271,13 @@ void MySQLDB::modmail(MYSQL* conn) {
 					newemail2 = newemail;
 					if (!emaile(newemail))
 						std::cout << "\n";
+					else if ((megvan = lekerdezes(conn, "SELECT email FROM login", newemail2)) < 0) {
+						puts("Hiba a felhasználó lekérdezése során!");
+						system("TIMEOUT /T 5");
+						modusermenu(conn);
+					}
+					else if (megvan)
+						puts("Már található ilyen felhasználónév!");
 					else {
 						ok1 = 1;
 						megvan = lekerdezes(conn, "UPDATE login SET email = '" + newemail2 + "' WHERE email = '" + email2 + "'", 0);
@@ -322,9 +323,8 @@ void MySQLDB::modpass(MYSQL* conn) {
 		std::cout << "Adja meg a módosítandó felhasználó E-mail címét: ";
 		std::cin >> email;
 		email2 = email;
-		if (!email2.compare("CANCEL") || !email2.compare("cancel")) {
+		if (!email2.compare("CANCEL") || !email2.compare("cancel"))
 			megsem = 1;
-		}
 		else {
 			if (!emaile(email))
 				std::cout << "\n";
@@ -348,9 +348,8 @@ void MySQLDB::modpass(MYSQL* conn) {
 						system("TIMEOUT /T 5");
 						modusermenu(conn);
 					}
-					else if (!megvan) {
+					else if (!megvan)
 						puts("Helytelen jelszó!");
-					}
 					else {
 						ok1 = 1;
 						std::cout << "Az új jelszó: ";
@@ -402,9 +401,8 @@ void MySQLDB::modperm(MYSQL* conn) {
 		std::cout << "Adja meg a módosítandó felhasználó E-mail címét: ";
 		std::cin >> email;
 		email2 = email;
-		if (!email2.compare("CANCEL") || !email2.compare("cancel")) {
+		if (!email2.compare("CANCEL") || !email2.compare("cancel"))
 			megsem = 1;
-		}
 		else {
 			if (!emaile(email))
 				std::cout << "\n";
@@ -428,9 +426,8 @@ void MySQLDB::modperm(MYSQL* conn) {
 						system("TIMEOUT /T 5");
 						modusermenu(conn);
 					}
-					else if (!megvan) {
+					else if (!megvan)
 						puts("Helytelen jelszó!");
-					}
 					else {
 						ok1 = 1;
 						char admin[5];
@@ -491,9 +488,8 @@ void MySQLDB::adduser(MYSQL* conn) {
 		std::cout << "E-mail cím: ";
 		std::cin >> email;
 		email2 = email;
-		if (!email2.compare("CANCEL") || !email2.compare("cancel")) {
+		if (!email2.compare("CANCEL") || !email2.compare("cancel"))
 			megsem = 1;
-		}
 		else if (!emaile(email))
 			std::cout << "\n";
 		else if ((megvan = lekerdezes(conn, "SELECT email FROM login", email2)) < 0) {
@@ -501,9 +497,8 @@ void MySQLDB::adduser(MYSQL* conn) {
 			system("TIMEOUT /T 5");
 			adminmenu(conn);
 		}
-		else if (megvan) {
+		else if (megvan)
 			puts("Már található ilyen felhasználó!");
-		}
 		else {
 			ok = 1;
 			char pass[33];
@@ -527,9 +522,8 @@ void MySQLDB::adduser(MYSQL* conn) {
 		}
 	} while (!ok && !megsem);
 
-	if (megsem) {
+	if (megsem)
 		adminmenu(conn);
-	}
 	else {
 		if (megvan < 0) {
 			puts("Sikertelen rögzítés(lekérdezés hiba)!");
@@ -562,28 +556,27 @@ void MySQLDB::deluser(MYSQL* conn) {
 		std::cout << "Adja meg a törölni kívánt felhasználónevet: ";
 		std::cin >> email;
 		email2 = email;
-		if (!email2.compare("CANCEL") || !email2.compare("cancel")) {
+		if (!email2.compare("CANCEL") || !email2.compare("cancel"))
 			megsem = 1;
-		}
 		else if (!emaile(email))
 			std::cout << "\n";
+		else if (!email2.compare(current))
+			puts("Jelenleg bejelentkezett felhasználó nem törölhetõ!");
 		else if ((megvan = lekerdezes(conn, "SELECT email FROM login", email2)) < 0) {
 			puts("Hiba a felhasználó lekérdezése során!");
 			system("TIMEOUT /T 5");
 			adminmenu(conn);
 		}
-		else if (!megvan) {
+		else if (!megvan)
 			puts("Nem található ilyen felhasználó!");
-		}
 		else {
 			ok = 1;
 			megvan = lekerdezes(conn, "DELETE FROM login WHERE email = '" + email2 + "'", 0);
 		}
 	} while (!ok && !megsem);
 
-	if (megsem) {
+	if (megsem)
 		adminmenu(conn);
-	}
 	else {
 		system("CLS");
 		if (megvan < 0) {
@@ -619,9 +612,8 @@ int MySQLDB::lekerdezes(MYSQL* conn, string query, string mit) {
 		}
 		return 0;
 	}
-	else {
+	else
 		return -1;
-	}
 }
 
 int MySQLDB::lekerdezes(MYSQL* conn, string query, bool param) {
@@ -652,76 +644,114 @@ int MySQLDB::lekerdezes(MYSQL* conn, string query, bool param) {
 }
 
 int MySQLDB::emaile(char s[]) {
-	unsigned short temp = 0;
-	unsigned short i = 0;
+	short i = 0;
+	short temp = 0;
 
-	if (s[strlen(s) - 1] == '.') {
-		std::cout << "Nem végzõdet ponttal a cím!";
+	if (!(temp = strlen(s))) {
+		puts("Nem adhat meg üres sort!");
 		return 0;
 	}
-	if (s[0] == '.') {
-		std::cout << "Nem kezdõdhet ponttal a cím!";
+	else if (temp < 5) {
+		puts("A címnek legalább 5 karakter hosszúnak kell lennie!");
 		return 0;
 	}
-
-	while (s[i] != '\0') {
-		if (s[i] == '@')
-			temp++;
-		i++;
-	}
-	if (!temp) {
-		std::cout << "Hiányzó '@' karakter!";
+	else if (temp > 254) {
+		puts("A cím szabvány szerint maximum 254 karakter hosszú lehet!");
 		return 0;
 	}
-	else if (temp > 1) {
-		std::cout << "Túl sok '@' karakter!";
+	else if ((s[0] == '.') || (s[0] == '@') || ((s[0] >= '0') && (s[0] <= '9'))) {
+		puts("A cím nem kezdõdhet ponttal, '@' karakterrel vagy számmal!");
+		return 0;
+	}
+	else if ((s[temp - 1] == '@') || (s[temp - 1] == '.') || ((s[temp - 1] >= '0') && (s[temp - 1] <= '9'))) {
+		puts("A cím nem végzõdhet ponttal, '@' karakterrel vagy számmal!");
 		return 0;
 	}
 	else {
-		i = 0;
 		temp = 0;
-
 		while (s[i] != '\0') {
-			if (s[i] == '.') {
-				if (s[i + 1] == '.') {
-					std::cout << "Nem állhat több pont egymás mellett!";
-					return 0;
-				}
-			}
+			if (s[i] == '@')
+				temp++;
 			i++;
 		}
-
-		i = 0;
-		while (s[i] != '@')
-			i++;
-		if (s[i - 1] == '.') {
-			std::cout << "Nem állhat '.' a '@' karakter elõtt!";
-			return 0;
-		}
-		else if (s[i + 1] == '.') {
-			std::cout << "Nem állhat '.' a '@' karakter után!";
+		if (temp != 1) {
+			puts("A cím csak egy '@' karaktert tartalmazhat!");
 			return 0;
 		}
 		else {
 			i = 0;
+			temp = 0;
 
-			while (s[i] != '@') {
-				if (!((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= '0' && s[i] <= '9') || (s[i] == '.') || (s[i] == '@'))) {
-					std::cout << "Érvénytelen felhasználónév!";
-					return 0;
-				}
+			while (s[i] != '\0') {
+				if (s[i] == '.')
+					temp++;
 				i++;
 			}
+			if (!temp) {
+				puts("A címnek legalább egy pontot tartalmaznia kell!");
+				return 0;
+			}
+			else {
+				i = 0;
+				temp = 0;
 
-			i++;
-			while (s[i] != '\0') {
-				if (!((s[i] >= 'a' && s[i] <= 'z') || (s[i] == '.'))) {
-					std::cout << "Érvénytelen domainnév!";
+				while (s[i] != '@') {
+					if (s[i] == '.')
+						temp++;
+					i++;
+				}
+
+				if (temp > 1) {
+					puts("A felhasználónév maximum 1 db pontot tartalmazhat!");
 					return 0;
 				}
-				i++;
+				else if (s[i - 1] == '.') {
+					puts("A '@' karakter elõtt nem állhat pont!");
+					return 0;
+				}
+				else if (s[i + 1] == '.') {
+					puts("A '@' karakter után nem állhat pont!");
+					return 0;
+				}
+				else {
+					i = 0;
+					temp = 0;
+
+					while (s[i] != '@') {
+						if (!(((s[i] >= 'a') && (s[i] <= 'z')) || ((s[i] >= '0') && (s[i] <= '9')) || (s[i] == '.')))
+							temp = 1;
+						i++;
+					}
+
+					if (temp) {
+						puts("A felhasználónév csak [a - z], [0 - 9] karaktereket és pontot tartalmazhat!");
+						return 0;
+					}
+					else {
+						i++;
+						temp = 0;
+
+						while (s[i] != '\0') {
+							if (!(((s[i] >= 'a') && (s[i] <= 'z')) || (s[i] == '.'))) {
+								puts("A domain név csak [a - z] karaktereket és pontot tartalmazhat!");
+								return 0;
+							}
+							else {
+								if (s[i] == '.')
+									temp++;
+							}
+							i++;
+						}
+
+						if (temp != 1) {
+							puts("A domain név csak egy pontot tartalmazhat!");
+							return 0;
+						}
+						else
+							return 1;
+					}
+				}
 			}
 		}
 	}
-	return 1;
 }

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <mysql.h>
+#undef max
 
 using std::string;
 
@@ -21,7 +22,6 @@ private:
 	static int emaile(char s[]);
 	static void adminmenu(MYSQL* conn);
 	static void usermenu();
-	static void start();
 	static void modusermenu(MYSQL* conn);
 	static void login();
 	static void keszitok();
