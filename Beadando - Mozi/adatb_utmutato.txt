@@ -1,0 +1,80 @@
+1) MySQL server letöltése
+	https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-8.0.16.0.msi
+
+2) MySQL server telepítése
+	I accept the license terms bepipál
+	Next
+	Custom kiválaszt
+	Next
+	MySQL Servers->MySQL Server->MySQL Server 8.0->MySQL Server 8.0.16 - X64 sorra katt
+	zöld jobbra mutató nyílra katt
+	MySQL Connectors->Connector/C++->Connector/C++ 8.0->Connector/C++ 8.0.16 - X64 sorra katt
+	zöld jobbra mutató nyílra katt
+	Next
+	Execute
+	Next
+	Next
+	Next
+	Next
+	Next
+	MySQL Root Password: root
+	Repeat Password: root
+	Next
+	Next
+	Execute
+	Finish
+	Next
+	Finish
+
+3) Visual Studio beállítása
+	Projekt megnyitása
+	Project->Beadando - Mozi Properties...
+	Configuration lenyit->All Configurations kiválaszt
+	Configuration Properties->C/C++->General
+		Additional Include Directories-t lenyit-><Edit...>
+		Felsõ mezõ üres részébe duplán belekattint
+		C:\Program Files\MySQL\Connector C++ 8.0\include      <--Ezt beilleszt
+		Az így létrejött sor alatti üres részbe duplán belekattint
+		félrekattint az üres részbe
+		C:\Program Files\MySQL\MySQL Server 8.0\include       <--Ezt beilleszt
+		félrekattint az üres részbe
+		OK
+	Configuration Properties->Linker->General
+		Additional Library Directories-t lenyit-><Edit...>
+		Felsõ mezõ üres részébe duplán belekattint
+		C:\Program Files\MySQL\Connector C++ 8.0\lib64\vs14   <--Ezt beilleszt
+		félrekattint az üres részbe
+		Az így létrejött sor alatti üres részbe duplán belekattint
+		C:\Program Files\MySQL\MySQL Server 8.0\lib           <--Ezt beilleszt
+		félrekattint az üres részbe
+		OK
+	Configuration Properties->Linker->Input
+		Additional Dependencies-t lenyit-><Edit...>
+		Felsõ mezõ üres részébe belekattint
+		mysqlcppconn.lib	<--Ezt beilleszt
+		libmysql.lib		<--Ezt beilleszt
+		OK
+		Alkalmaz
+		OK
+
+4) Fájlok másolása
+	C:\Program Files\MySQL\MySQL Server 8.0\lib\libmysql.dll
+				ÉS
+	C:\Program Files\MySQL\MySQL Server 8.0\bin\libeay32.dll
+				ÉS
+	C:\Program Files\MySQL\MySQL Server 8.0\bin\ssleay32.dll
+			fájlokat másolod
+	C:\Documents\Visual Studio 2015\Projects\Beadando - Mozi\Debug	(feltételezem)
+			mappába a lefordult exe mellé
+
+5) Adatbázis létrehozása
+	letöltöd az én adatbázismentésem(mozibackup.sql)
+	start->megkeresed a "MySQL 8.0 Command Line Client" progit, majd elindítod
+	kéri a jelszót, ami: root
+	beírod sorban a következõket
+		create database mozi;
+		use mozi
+		source C:\Users\%USERNAME%\Downloads\mozibackup.sql
+	ellenõrzésnek beírod ezt:
+		select * from login;
+	ha nem jön be az egész tábla, akkor írj.
