@@ -1,16 +1,14 @@
 #include "main.hpp"
 
-//#include "Mozi.hpp"
-//#include <vector>
-
 void Main::start() {
-	Ertekeles e1 = Ertekeles("Kozepes", 5);
+	system("CLS");
+	Ertekeles e1 = Ertekeles("Közepes", 5);
 	Ertekeles e2 = Ertekeles("Legjobb", 10);
 	Ertekeles e3 = Ertekeles("Kaki", 1);
 	Ertekeles e4 = Ertekeles("Meh", 3);
 
-	Mozi cinemaCity = Mozi("Cinema City Magyarorszag");
-	Helyszin h1 = Helyszin("Gyor","Vasvari Pal utca 1","8:00","02:00");
+	Mozi cinemaCity = Mozi("Cinema City Magyarország");
+	Helyszin h1 = Helyszin("Gyõr","Vasvári Pál utca 1","8:00","02:00");
 
 	cinemaCity.hozzaad(h1);
 	
@@ -19,9 +17,9 @@ void Main::start() {
 	Kijelzes k = Kijelzes();
 	std::vector<Jegy> jegyek;
 	
-	Film f1 = Film("Bosszuallok", "Anthony Russo", Nyelv::Angol, Tipus::Akcio);
-	Film f2 = Film("Pokember", "Sam Raimi", Nyelv::Angol, Tipus::Thriller);
-	Film f3 = Film("A sikeres C++ vizsga", "Orban Mate - Zsigmond Richard - Szekendi Balazs", Nyelv::Magyar, Tipus::Vigjatek);
+	Film f1 = Film("Bosszúállók", "Anthony Russo", Nyelv::Angol, Tipus::Akcio);
+	Film f2 = Film("Pókember", "Sam Raimi", Nyelv::Angol, Tipus::Thriller);
+	Film f3 = Film("A sikeres C++ vizsga", "Orbán Máté - Zsigmond Richárd Tamás - Szekendi Balázs", Nyelv::Magyar, Tipus::Vigjatek);
 
 	f1.ertekelesHozzaad(e1);
 	f2.ertekelesHozzaad(e4);
@@ -65,7 +63,8 @@ void Main::start() {
 	int ar = 0;
 
 	cinemaCity.kiir();
-	std::cout <<std::endl << std::endl;
+	puts("\n");								//std::cout <<std::endl << std::endl;
+	
 
 
 	k.kezdooldal();

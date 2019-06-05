@@ -3,7 +3,6 @@
 #include "Nyelv.cpp"
 #include "Tipus.cpp"
 #include "Ertekeles.hpp"
-#include <string>
 #include <vector>
 
 class Film

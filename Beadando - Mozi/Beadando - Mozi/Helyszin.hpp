@@ -5,6 +5,7 @@
 #include "Terem.hpp"
 #include <list>
 #include <vector>
+#include <algorithm>
 
 
 

@@ -1,10 +1,8 @@
 #include "Mozi.hpp"
-#include <vector>
-#include <algorithm>
 
 void Mozi::kiir()
 {
-	std::cout << "Azonosito: "<< getAzonosito()<<std::endl;
+	std::cout << "Azonositó: "<< getAzonosito()<<std::endl;
 
 	for (Helyszin h : helyszinek)
 	{

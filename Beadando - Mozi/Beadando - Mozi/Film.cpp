@@ -1,6 +1,3 @@
-//#include "Ertekeles.hpp"
-#include <string>
-#include <iostream>
 #include "Film.hpp"
 
 

@@ -1,8 +1,5 @@
 #ifndef MOZI_HPP
 #define MOZI_HPP
-#include <string.h>
-#include <iostream>
-#include <vector>
 #include "Helyszin.hpp"
 
 class Mozi

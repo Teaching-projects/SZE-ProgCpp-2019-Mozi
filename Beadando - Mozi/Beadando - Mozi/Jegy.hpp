@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 #include "Napok.cpp"
-
 #include "Film.hpp"
 #include "Helyszin.hpp"
 

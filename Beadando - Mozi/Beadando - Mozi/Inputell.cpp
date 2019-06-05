@@ -1,7 +1,6 @@
 #include "Inputell.h"
-#include "Tarolo.hpp"
-#include <iostream>
-#include <string>
+
+
 
 
 

@@ -1,7 +1,5 @@
 #ifndef SZEMELYZET_HPP
 #define SZEMELYZET_HPP
-#include <iostream>
-#include <string>
 #include "Felhasznalo.hpp"
 
 class Szemelyzet : public Felhasznalo

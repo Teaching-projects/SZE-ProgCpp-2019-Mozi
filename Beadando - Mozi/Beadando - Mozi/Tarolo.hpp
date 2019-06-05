@@ -1,11 +1,10 @@
 #pragma once
-#include <iostream>
-#include <string.h>
+
 #ifndef TAROLO_HPP
 #define TAROLO_HPP
 #include "Film.hpp"
 #include "Terem.hpp"
-#include <vector>
+
 class Tarolo
 {
 	

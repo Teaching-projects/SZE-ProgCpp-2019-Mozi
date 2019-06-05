@@ -1,4 +1,3 @@
-#include <iostream>
 #include "MySQLDB.hpp"
 
 void main() {

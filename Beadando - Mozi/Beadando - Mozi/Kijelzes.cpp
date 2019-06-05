@@ -1,8 +1,4 @@
-
 #include "Kijelzes.hpp"
-#include <iostream>
-#include <string.h>
-#include "Tarolo.hpp"
 
 Kijelzes::Kijelzes(){}
 

@@ -1,9 +1,6 @@
 #include "Szamla.hpp"
 #include "Felhasznalo.hpp"
 #include "Szemelyzet.hpp"
-#include <iostream>
-#include <string>
-#include <fstream>
 
 Szamla::Szamla() {};
 

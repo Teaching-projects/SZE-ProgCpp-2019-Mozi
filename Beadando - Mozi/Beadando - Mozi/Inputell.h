@@ -1,6 +1,9 @@
 #ifndef INPUTELL_H
 #define INPUTELL_H
 #pragma once
+
+#include "Tarolo.hpp"
+
 class Inputell
 {
 public:

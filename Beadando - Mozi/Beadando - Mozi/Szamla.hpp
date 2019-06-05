@@ -1,7 +1,5 @@
 #ifndef SZAMLA_HPP
 #define SZAMLA_HPP
-#include <iostream>
-#include <string>
 #include <fstream>
 #include "Felhasznalo.hpp"
 #include "Jegy.hpp"

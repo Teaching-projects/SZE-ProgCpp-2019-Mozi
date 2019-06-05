@@ -1,8 +1,5 @@
-#include <iostream>
-#include <string>
 #include "Helyszin.hpp"
-#include <vector>
-#include <algorithm>
+
 
 
 
@@ -19,8 +16,8 @@ void Helyszin::kiir()
 	std::string cim;
 	std::string nyitas;
 	std::string zaras;
-	std::cout << "Nev: " << getNev() << std::endl << "Cim: "<< getCim() << std::endl << "Nyitas: "<< getNyitas() 
-		<< std::endl << "Zaras: "<< getZaras() << std::endl;
+	std::cout << "Név: " << getNev() << std::endl << "Cím: "<< getCim() << std::endl << "Nyitás: "<< getNyitas() 
+		<< std::endl << "Zárás: "<< getZaras() << std::endl;
 
 	for (Terem t : termek)
 	{
