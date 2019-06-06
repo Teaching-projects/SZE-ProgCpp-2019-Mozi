@@ -46,11 +46,9 @@ void Main::start() {
 	int jegydb = 0;
 	int tipusindex = 0;
 	char szamlae;
-
 	int sorindex = 0;
 	int oszlopindex = 0;
 	int temp = 0;
-
 
 	time_t most = time(0);
 	tm *ji = localtime(&most);
@@ -63,9 +61,7 @@ void Main::start() {
 	int ar = 0;
 
 	cinemaCity.kiir();
-	puts("\n");								//std::cout <<std::endl << std::endl;
-	
-
+	std::cout <<std::endl << std::endl;
 
 	k.kezdooldal();
 	std::cin >> input;
@@ -73,8 +69,6 @@ void Main::start() {
 	{
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		
-
 		if (input == 1)
 		{
 			system("cls");
@@ -84,73 +78,66 @@ void Main::start() {
 			system("cls");
 			k.kezdooldal();
 			std::cin >> input;
-			
 		}
 		else if (input == 2)
 		{
 			system("cls");
 			k.jegyVasarlas(t);
 			std::cin >> filmindex;
+
 			while (filmindex <1 || filmindex > t.filmek.size())
 			{
-				std::cout << std::endl<< "Nincs ilyen indexu film! Adjon meg ujat: ";
+				std::cout << std::endl<< "Nincs ilyen indexû film! Adjon meg újat: ";
 				std::cin.clear();
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				std::cin >> filmindex;
 			}
-
-
 			k.teremKiiras(t);
 			std::cin >> teremindex;
+
 			while (teremindex <1 || teremindex > t.termek.size())
 			{
-				std::cout << std::endl << "Nincs ilyen indexu terem! Adjon meg ujat: ";
+				std::cout << std::endl << "Nincs ilyen indexû terem! Adjon meg újat: ";
 				std::cin.clear();
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				std::cin >> teremindex;
 			}
-
-
-			std::cout << std::endl << "Hany jegyet szeretne foglalni (1-10 db): ";
+			std::cout << std::endl << "Hány jegyet szeretne foglalni (1-10 db): ";
 			std::cin >> jegydb;
+
 			while (!Inputell::indexell(jegydb))
 			{
 				std::cin.clear();
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				std::cout << std::endl << "Hany jegyet szeretne foglalni (1-10 db): ";
+				std::cout << std::endl << "Hány jegyet szeretne foglalni (1-10 db): ";
 				std::cin >> jegydb;
 			}
-
-
-			std::cout << "[1]   Normal" << std::endl << "[2]   Diak" << std::endl << "[3]   Nyugdijas" << std::endl;
-			std::cout << std::endl << "Valasszon jegytipust: ";
+			std::cout << "[1]   Normál" << std::endl << "[2]   Diák" << std::endl << "[3]   Nyugdíjas" << std::endl;
+			std::cout << std::endl << "Válasszon jegytípust: ";
 			std::cin >> tipusindex;
+
 			while (!Inputell::menuell(tipusindex))
 			{
 				std::cin.clear();
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				std::cout <<std::endl<< "Valasszon jegytipust: ";
+				std::cout <<std::endl<< "Válasszon jegytípust: ";
 				std::cin >> tipusindex;
 			}
-
 
 			if (tipusindex == 1) {
 				ar = Akcio::alapar;
 				felh.setPenztarca(felh.getPenztarca() - ar*jegydb);
 			}
-
 			else if (tipusindex == 2)
 			{
 				ar = Akcio::getDiakAr();
 				felh.setPenztarca(felh.getPenztarca() - ar * jegydb);
 			}
-
 			else if (tipusindex == 3)
 			{
 				ar = Akcio::getNyugdijasAr();
 				felh.setPenztarca(felh.getPenztarca() - ar * jegydb);
 			}
-
 
 			for (int i = 0; i < jegydb; i++)
 			{
@@ -159,95 +146,81 @@ void Main::start() {
 
 				std::cout << std::endl << "Sor: ";
 				std::cin >> sorindex;
+
 				while (!Inputell::indexell(sorindex))
 				{
-					
 					std::cin.clear();
 					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 					std::cout << std::endl << "Sor: ";
 					std::cin >> sorindex;
-					
 				}
-
 				std::cout << std::endl << "Oszlop: ";
 				std::cin >> oszlopindex;
+
 				while (!Inputell::indexell(oszlopindex))
 				{
-
 					std::cin.clear();
 					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 					std::cout << std::endl << "Oszlop: ";
 					std::cin >> oszlopindex;
-
 				}
-
 
 				while (!t.termek[teremindex - 1].ugyanodaFoglal(sorindex-1, oszlopindex-1))
 				{
 					t.termek[teremindex - 1].ulesKiir();
 					std::cout << std::endl << "Sor: ";
 					std::cin >> sorindex;
+
 					while (!Inputell::indexell(sorindex))
 					{
-
 						std::cin.clear();
 						std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 						std::cout << std::endl << "Sor: ";
 						std::cin >> sorindex;
-
 					}
-
-					
-				
 					std::cout << std::endl << "Oszlop: ";
 					std::cin >> oszlopindex;
+
 					while (!Inputell::indexell(oszlopindex))
 					{
-
 						std::cin.clear();
 						std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 						std::cout << std::endl << "Oszlop: ";
 						std::cin >> oszlopindex;
-
 					}
 				}
-
 				t.termek[teremindex - 1].ulesFoglal(sorindex-1, oszlopindex-1);
 
 				Jegy jegy = Jegy(kodelotag + std::to_string(kodindex), sorindex, oszlopindex, ar, 1900 + ji->tm_year, 1 + ji->tm_mon, ji->tm_mday,t.filmek[filmindex-1]);
 				
 				jegyek.push_back(jegy);
-				
 			}
-			std::cout << std::endl << "Ker szamlat a vasarlasrol? (I/N): ";
+			std::cout << std::endl << "Kér számlát a vásárlásról? (I/N): ";
 			std::cin >> szamlae;
+
 			while (!Inputell::inell(szamlae))
 			{
-
 				std::cin.clear();
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				std::cout << std::endl << "Ker szamlat a vasarlasrol? (I/N): ";
+				std::cout << std::endl << "Kér számlát a vásárlásról? (I/N): ";
 				std::cin >> szamlae;
-
 			}
 			
-
 			if (toupper(szamlae) == 'I')
 			{
 				Szamla::szamlaJegy(felh, jegyek, t.termek[teremindex-1]);
-				std::cout << std::endl << "Szamla kiadva!" << std::endl;
-				std::cout << "Felhasznalo maradek penze: " << felh.getPenztarca();
+				std::cout << std::endl << "Számla kiadva!" << std::endl;
+				std::cout << "Felhasználó maradék pénze: " << felh.getPenztarca();
 			}
 			else if (toupper(szamlae) == 'N')
 			{
-				std::cout << std::endl << "A vasarlas reszletei: " << std::endl;
+				std::cout << std::endl << "A vásárlás részletei: " << std::endl;
 				for (Jegy j : jegyek)
-				{
 					j.jegyKiir();
-				}
-				std::cout << "Felhasznalo maradek penze: " << felh.getPenztarca();
+				
+				std::cout << "Felhasználó maradék pénze: " << felh.getPenztarca();
 			}
-			std::cout << std::endl << std::endl << "A program leall, megvan a kettes!"<< std::endl;
+			std::cout << std::endl << std::endl << "A program leáll, megvan a kettes!"<< std::endl;
 			exit(0);
 
 			/*std::cout << std::endl;
@@ -256,19 +229,15 @@ void Main::start() {
 			k.kezdooldal();*/
 
 			//std::cin >> input;
-	
 		}
-
 		else if (input == 3)
 		{
 			exit(0);
 		}
 		else
 		{
-			std::cout << "Valasszon (1,2,3): ";
+			std::cout << "Válasszon (1,2,3): ";
 			std::cin >> input;
-			
 		}
-
 	}
 }
