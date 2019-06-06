@@ -7,10 +7,6 @@
 #include <vector>
 #include <algorithm>
 
-
-
-
-
 class Helyszin
 {
 private:
@@ -19,29 +15,26 @@ private:
 	std::string nyitas;
 	std::string zaras;
 	std::vector<Terem> termek;
-	
-	
-	
 
 public:
-	
 	Helyszin(std::string nev, std::string cim, std::string nyitas, std::string zaras)
 	{
-		
 		this->nev = nev;
 		this->cim = cim;
 		this->nyitas = nyitas;
 		this->zaras = zaras;
 	}
+
 	Helyszin()
 	{
 
 	}
 	
 	void kiir();
-	void hozzaad(Terem terem);
-	void torol(Terem terem);
 
+	void hozzaad(Terem terem);
+
+	void torol(Terem terem);
 	
 	std::string getNev()
 	{
@@ -82,7 +75,5 @@ public:
 	{
 		this->zaras = zaras;
 	}
-
-	
 };
 #endif

@@ -2,16 +2,11 @@
 
 void Terem:: teremKiir()
 {
-
-	std::cout << "Azonosito: " << getAzonosito() << std::endl << "Nev: " << getNev() << std::endl << "Kapacitas: " << getKapacitas() << std::endl;
+	std::cout << "Azonosító: " << getAzonosito() << std::endl << "Név: " << getNev() << std::endl << "Kapacitás: " << getKapacitas() << std::endl;
 	if (getLegkondizalte() == true)
-	{
-		std::cout << "Legkondizalt";
-	}
+		std::cout << "Légkondizált";
 	else
-	{
-		std::cout << "Nem legkondizalt";
-	}
+		std::cout << "Nem légkondizált";
 	std::cout << std::endl;
 }
 
@@ -22,22 +17,17 @@ void Terem::ulesFeltolt()
 	for (i=0; i < 10; i++)
 	{
 		for (j=0; j < 10; j++)
-		{
 			ulesek[i][j] = '*';
-		}
 	}
 }
 
 void Terem::ulesKiir()
 {
-
 	int i;
 	int j;
 
 	for (i = 0; i < 10; i++)
-	{
 		std::cout << i + 1 << ". ";
-	}
 
 	for (i = 0; i < 10; i++)
 	{
@@ -50,8 +40,6 @@ void Terem::ulesKiir()
 	}
 }
 
-
-
 void Terem::ulesFoglal(int sor, int oszlop)
 {
 	ulesek[sor][oszlop] = 'X';
@@ -61,11 +49,8 @@ bool Terem::ugyanodaFoglal(int sor, int oszlop)
 {
 	if (ulesek[sor][oszlop] == 'X')
 	{
-		std::cout <<std::endl<< "Ez a hely mar foglalt, valassz masikat!" << std::endl << std::endl;
+		std::cout <<std::endl<< "Ez a hely már foglalt, válassz másikat!" << std::endl << std::endl;
 		return false;
 	}
 	return true;
 }
-
-
-

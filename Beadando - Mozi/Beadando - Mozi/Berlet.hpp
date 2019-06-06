@@ -40,6 +40,7 @@ public:
 	{
 		return this->kod;
 	}
+
 	void setKod(std::string kod)
 	{
 		this->kod = kod;
@@ -104,7 +105,5 @@ public:
 	{
 		this->napIg = napIg;
 	}
-
 };
-
 #endif

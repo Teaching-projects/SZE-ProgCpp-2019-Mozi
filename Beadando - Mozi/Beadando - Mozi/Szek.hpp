@@ -1,6 +1,7 @@
 #ifndef SZEK_HPP
 #define SZEK_HPP
 #pragma once
+
 class Szek
 {
 private:
@@ -32,8 +33,5 @@ public:
 	{
 		this->oszlop = oszlop;
 	}
-
-
 };
-
 #endif

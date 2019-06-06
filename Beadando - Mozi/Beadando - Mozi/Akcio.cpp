@@ -1,7 +1,4 @@
 #include "Akcio.hpp"
-
-
-
 	
  int Akcio::getDiakAr()
 {
@@ -17,4 +14,3 @@
  {
 	 return alapar;
  }
-

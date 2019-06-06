@@ -27,6 +27,5 @@ public:
 	{
 		this->azonosito = azonosito;
 	}
-
 };
 #endif

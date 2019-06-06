@@ -7,8 +7,6 @@
 
 class Tarolo
 {
-	
-
 public:
 	Tarolo();
 	void filmKiir();
@@ -21,17 +19,11 @@ public:
 	std::vector<Film> filmek;
 	std::vector<Terem> termek;
 
-
 	int i = 0;
-
 
 	int getI()
 	{
 		return this->i;
 	}
-
-	
-
 };
 #endif
-

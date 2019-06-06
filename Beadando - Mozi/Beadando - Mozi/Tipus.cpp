@@ -1,4 +1,3 @@
-
 enum Tipus 
 {
 	Akcio,
@@ -8,6 +7,3 @@ enum Tipus
 	Misztikus,
 	Romantikus
 };
-
-
-

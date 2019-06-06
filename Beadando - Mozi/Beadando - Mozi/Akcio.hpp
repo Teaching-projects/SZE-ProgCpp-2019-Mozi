@@ -11,8 +11,5 @@ public:
 	static int getDiakAr();
 	static int getNyugdijasAr();
 	static int getNormalAr();
-	
-	
-
 };
 #endif

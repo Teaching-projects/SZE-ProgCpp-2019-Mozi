@@ -2,10 +2,8 @@
 
 void Szemelyzet::szemelyzetKiir()
 {
-
-		std::cout << "Felhasznalonev: " << getFelhasznalonev() << std::endl << "Jelszo: " << getJelszo() << std::endl 
-		<< "Nev: " << getNev() << std::endl << "Szuletesi datum: " << getSzuldat() << std::endl 
-		<< "e-mail cim: " << getEmail() << std::endl << "Beosztas: " << getBeosztas() << std::endl 
-		<< "Fizetes: " << getFizetes() << std::endl;;
-	
+		std::cout << "Felhasználónév: " << getFelhasznalonev() << std::endl << "Jelszó: " << getJelszo() << std::endl 
+		<< "Név: " << getNev() << std::endl << "Születési dátum: " << getSzuldat() << std::endl 
+		<< "E-mail cím: " << getEmail() << std::endl << "Beosztás: " << getBeosztas() << std::endl 
+		<< "Fizetés: " << getFizetes() << std::endl;;	
 }

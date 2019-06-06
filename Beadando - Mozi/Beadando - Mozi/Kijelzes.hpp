@@ -4,7 +4,6 @@
 
 #include "Tarolo.hpp"
 
-
 class Kijelzes
 {
 public:
@@ -13,7 +12,5 @@ public:
 	void jelenlegiFilmek(Tarolo t);
 	void jegyVasarlas(Tarolo t);
 	void teremKiiras(Tarolo t);
-
 };
-
 #endif

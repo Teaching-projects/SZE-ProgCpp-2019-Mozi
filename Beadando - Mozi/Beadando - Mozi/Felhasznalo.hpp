@@ -5,7 +5,6 @@
 
 class Felhasznalo
 {
-
 private:
 	std::string felhasznalonev;
 	std::string jelszo;
@@ -26,7 +25,6 @@ public:
 	}
 
 	void felhasznaloKiir();
-
 
 	void setPenztarca(int penztarca)
 	{
@@ -62,11 +60,5 @@ public:
 	{
 		return this->email;
 	}
-
-
-
-
-
 };
-
 #endif

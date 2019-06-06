@@ -3,7 +3,6 @@
 #ifndef TEREM_HPP
 #define TEREM_HPP
 
-
 class Terem
 {
 private:
@@ -14,8 +13,6 @@ private:
 	char ulesek[10][10];
 
 public:
-
-
 	Terem(int azonosito, std::string nev, int kapacitas, bool legkondizalte)
 	{
 		this->azonosito = azonosito;
@@ -26,9 +23,13 @@ public:
 	}
 
 	void ulesKiir();
+
 	void ulesFeltolt();
+
 	void teremKiir();
+
 	void ulesFoglal(int sor, int oszlop);
+
 	bool ugyanodaFoglal(int sor, int oszlop);
 
 	bool getLegkondizalte()
@@ -51,7 +52,6 @@ public:
 		this->kapacitas = kapacitas;
 	}
 
-
 	std::string getNev()
 	{
 		return nev;
@@ -71,7 +71,5 @@ public:
 	{
 		this->azonosito = azonosito;
 	}
-
 };
-
 #endif

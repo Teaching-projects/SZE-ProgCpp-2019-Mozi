@@ -6,8 +6,6 @@
 #include "Film.hpp"
 #include "Helyszin.hpp"
 
-
-
 class Jegy 
 {
 private:
@@ -20,7 +18,6 @@ private:
 	int nap;
 	Film f;
 	//Helyszin h;   kesobb kell majd
-	
 	int ar;
 
 public:
@@ -37,9 +34,7 @@ public:
 		//this->h = h;
 	}
 
-
 public:
-
 	void jegyKiir();
 
 	std::string getKod()
@@ -54,7 +49,6 @@ public:
 	/*{
 		return this->ev == ev && this->honap == honap && this->nap == nap;
 	}*/
-
 
 	/*std::string getNap()
 	{
@@ -134,7 +128,5 @@ public:
 	{
 		this->nap = nap;
 	}
-	
-
 };
 #endif

@@ -3,10 +3,8 @@
 #include <iostream>
 #include <string>
 
-
 class Ertekeles
 {
-
 private:
 	std::string leiras;
 	int csillagdb;
@@ -16,7 +14,7 @@ public:
 	{
 		if (csillagdb > 10 || csillagdb < 0)
 		{
-			std::cout << "Hibas ertek lett megadva, alapertemezett lett beallitva!" << std::endl;
+			std::cout << "Hibás érték lett megadva, alapértemezett lett beállítva!" << std::endl;
 			this->csillagdb = 5;
 		}
 		else
@@ -26,20 +24,16 @@ public:
 		}
 	};
 
-	
-
 public:
 	int getCsillagdb()
 	{
 		return csillagdb;
 	}
+
 	void setCsillagdb(int csillagdb) 
 	{ 
 		if (csillagdb <= 10 && csillagdb >= 1)
-		{
-
 			this->csillagdb = csillagdb;
-		}
 	}
 
 	std::string getLeiras()
@@ -53,9 +47,7 @@ public:
 	}
 
 	void csillagKiir();
-	
+
 	void ertekelesKiir();
-
 };
-
 #endif

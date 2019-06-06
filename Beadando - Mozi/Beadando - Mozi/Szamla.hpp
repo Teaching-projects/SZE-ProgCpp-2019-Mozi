@@ -5,18 +5,14 @@
 #include "Jegy.hpp"
 #include "Berlet.hpp"
 #include "Terem.hpp"
+
 static std::ofstream fajl;
+
 class Szamla
 {
-	
-		
-		
-	public:
-		Szamla();	
+public:
+	Szamla();	
 
-		
-		static void szamlaJegy(Felhasznalo f, std::vector<Jegy> jegyek, Terem t);
-		
-
+	static void szamlaJegy(Felhasznalo f, std::vector<Jegy> jegyek, Terem t);
 };
 #endif

@@ -5,7 +5,6 @@
 class Szemelyzet : public Felhasznalo
 {
 private:
-
 	std::string beosztas;
 	int fizetes;
 
@@ -27,7 +26,5 @@ public:
 	{
 		return this->fizetes;
 	}
-	
 };
-
 #endif
