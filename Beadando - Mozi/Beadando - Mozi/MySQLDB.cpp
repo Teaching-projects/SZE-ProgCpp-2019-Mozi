@@ -522,6 +522,7 @@ void MySQLDB::adduser(MYSQL* conn) {
 	if (megsem)
 		adminmenu(conn);
 	else {
+		system("CLS");
 		if (megvan < 0) {
 			puts("Sikertelen rögzítés(lekérdezés hiba)!");
 			system("TIMEOUT /T 5");
